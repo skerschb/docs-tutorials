@@ -1,100 +1,12 @@
-const autoprefixer = require('gulp-autoprefixer')
 const babili = require("gulp-babili")
 const gulp = require('gulp')
 const gulpWebpack = require('gulp-webpack')
 const plumber = require('gulp-plumber')
 const pump = require('pump')
 const rename = require('gulp-rename')
-const sass = require('gulp-sass')
-const scsslint = require('gulp-scss-lint')
 const sourcemaps = require('gulp-sourcemaps')
 const uglify = require('gulp-uglify')
 const webpack = require('webpack')
-
-gulp.task('sass:lint', function() {
-  gulp.src('./src/styles/*.scss')
-    .pipe(plumber())
-    .pipe(scsslint())
-})
-
-gulp.task('sass:build', function() {
-  gulp.src('./src/styles/app.scss')
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./static/css/'))
-})
-
-gulp.task('sass:prod:build', function() {
-  gulp.src('./src/styles/app.scss')
-    .pipe(rename({suffix: '.min'}))
-    .pipe(plumber())
-    .pipe(sass({
-      outputStyle: 'compressed',
-    }))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest('./static/css/'))
-})
-
-gulp.task('sass:build-navbar', function() {
-  gulp.src('./src/styles/navbar.scss')
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./static/css/'))
-})
-
-gulp.task('sass:prod:build-navbar', function() {
-  gulp.src('./src/styles/navbar.scss')
-    .pipe(rename({suffix: '.min'}))
-    .pipe(plumber())
-    .pipe(sass({
-      outputStyle: 'compressed',
-    }))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest('./static/css/'))
-})
-
-gulp.task('sass:build-feedback', function() {
-  gulp.src('./src/styles/feedback.scss')
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(sass({
-      includePaths: ['./node_modules/font-awesome-scss/scss']
-    }))
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./static/css/'))
-})
-
-gulp.task('sass:prod:build-feedback', function() {
-  gulp.src('./src/styles/feedback.scss')
-    .pipe(rename({suffix: '.min'}))
-    .pipe(plumber())
-    .pipe(sass({
-      outputstyle: 'compressed',
-      includePaths: ['./node_modules/font-awesome-scss/scss']
-    }))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest('./static/css/'))
-})
-
-gulp.task('sass', [
-  'sass:lint',
-  'sass:build',
-  'sass:build-navbar',
-  'sass:build-feedback'
-])
-
-gulp.task('sass:prod', [
-  'sass:prod:build',
-  'sass:prod:build-navbar',
-  'sass:prod:build-feedback'
-])
 
 gulp.task('js:build-navbar', function() {
   gulp.src('./src/navbar.js')
@@ -331,18 +243,15 @@ gulp.task('js:prod', [
 ])
 
 gulp.task('build-prod', [
-  'sass:prod',
   'js:prod'
 ])
 
 gulp.task('watch', function() {
-  gulp.watch('./src/styles/**/*.scss', ['sass'])
   gulp.watch('./src/**/*.js', ['js'])
 })
 
 gulp.task('watch:prod', function() {
-  gulp.watch('./src/styles/**/*.scss', ['sass:prod'])
   gulp.watch('./src/**/*.js', ['js:prod'])
 })
 
-gulp.task('default', ['sass', 'js', 'watch'])
+gulp.task('default', ['js', 'watch'])
