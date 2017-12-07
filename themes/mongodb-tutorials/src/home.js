@@ -5,7 +5,23 @@ import Facet from './facet.js'
 import Search from './search.js'
 import TutorialList from './tutorialList.js'
 import util from './util.js'
-import 'whatwg-fetch'
+
+function http_get_json(url) {
+  const req = new XMLHttpRequest()
+  req.open('GET', url)
+  return new Promise((resolve, reject) => {
+      req.onload = (ev) => {
+        try {
+          resolve(JSON.parse(ev.target.responseText))
+        } catch (err) {
+          reject(err)
+        }
+      }
+
+      req.onerror = (ev) => reject(ev)
+    req.send()
+  })
+}
 
 class App extends React.Component {
   constructor (props) {
@@ -22,14 +38,13 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    fetch(this.state.assetsPrefix + '/tags.json').then((response) => {
-      return response.json()
-    }).then((data) => {
+    http_get_json(this.state.assetsPrefix + '/tags.json').then((data) => {
       this.setState({
         options: data.tags,
         tutorials: data.tutorials,
       })
     }).catch((err) => {
+      console.error(err)
       // TODO: do something here
     })
 
