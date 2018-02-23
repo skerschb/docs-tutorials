@@ -1,82 +1,93 @@
-title: Start Excel
-ref: start-excel
+title: Switch to the test database
+ref: process-mongodb
 level: 4
 stepnum: 1
 content: |
-  Start Microsoft Excel and open a blank worksheet.
+  .. tabs-drivers::
+
+     tabs:
+       - id: shell
+         content: |
+           Before you can insert data into mongoDB, you must identify the database you wish to insert the data into. For this guide,
+           you will use the "test" database. In the mongo shell, enter
+             .. cssclass:: copyable-code
+             .. code-block:: sh
+              
+                use test
+              
+       - id: nodejs
+         content: |
+           Before you can insert data into mongoDB, you must connect to mongoDB and identify the database you wish to insert the data into. For this guide,
+           you will use the "test" database.
+             .. cssclass:: copyable-code
+             .. code-block:: javascript
+            
+                const MongoClient = require('mongodb').MongoClient;
+                const assert = require('assert');
+
+                // Connection URL
+                const url = 'mongodb://localhost:27017';
+
+                // Database Name
+                const dbName = 'test';
+
+                // Use connect method to connect to the Server
+                MongoClient.connect(url, function(err, client) {
+                assert.equal(null, err);
+                console.log("Connected correctly to server");
+
+                const db = client.db(dbName);
+         
 ---
-title: Select the Data Tab
-ref: select-data-tab
+title: Insert a Document
+ref: access-mongos
 level: 4
 stepnum: 2
 content: |
-  Select the :guilabel:`Data` tab to open the Data toolbar.
----
-title: Open a Data Connection Wizard Dialog
-ref: open-data-connection-wizard
-level: 4
-stepnum: 3
-content: |
-  a. Click the :guilabel:`Get External Data` button on the left side of
-     the toolbar.
-  #. Click :guilabel:`From Other Sources`.
-  #. Select the :guilabel:`From Data Connection Wizard` option.
+  .. tabs-drivers::
 
-  .. figure:: /images/bi-connector/excel-get-external-data.png
-     :alt: Screenshot of the Data Connection Wizard option
-     :figwidth: 700px
----
-title: Select :guilabel:`ODBC DSN`
-ref: select-odbc-dsn
-level: 4
-stepnum: 4
-content: |
-  Select :guilabel:`ODBC DSN` from the list of data source options and
-  click :guilabel:`Next`.
+     tabs:
+       - id: shell
+         content: |
+           Insert a document into a collection named restaurants. The operation will create the collection if the collection does not currently exist.
+             .. cssclass:: copyable-code
+             .. code-block:: javascript
+   
+              
+                db.restaurants.insert(
+                {
+                  "address" : {
+                  "street" : "21 Avenue",
+                  "zipcode" : "10075",
+                  "building" : "1480",
+                  "coord" : [ -73.9557413, 40.7720266 ]
+                },
+                "borough" : "Manhattan",
+                "cuisine" : "Italian",
+                "grades" : [
+                {
+                  "date" : ISODate("2014-10-01T00:00:00Z"),
+                  "grade" : "A",
+                  "score" : 11
+                },
+                {
+                  "date" : ISODate("2014-01-16T00:00:00Z"),
+                  "grade" : "B",
+                  "score" : 17
+                }
+                ],
+                "name" : "Vella",
+                "restaurant_id" : "41704620"
+                }
+                )
+              
+       - id: nodejs
+         content: |
+           Before you can insert data into mongoDB, you must connect to mongoDB and identify the database you wish to insert the data into. In this case,
+           it will be the "test" database. 
+              
+              
 
-  .. figure:: /images/bi-connector/excel-data-connection-wizard-data-source.png
-     :alt: Screenshot of data source options selection box
-     :figwidth: 700px
----
-title: Select Your DSN
-ref: select-your-dsn
-level: 4
-stepnum: 5
-content: |
-  Select the DSN which connects to your |bi-short| instance and
-  click :guilabel:`Next`.
-
-  .. figure:: /images/bi-connector/excel-connection-wizard-odbc-sources.png
-     :alt: Screenshot of DSN list
-     :figwidth: 700px
----
-title: Select a Database and Table
-ref: select-database-and-table
-level: 4
-stepnum: 6
-content: |
-  Select a database from the dropdown list and a collection from which
-  to import data. Click :guilabel:`Next` when finished.
-
-  .. figure:: /images/bi-connector/excel-connection-wizard-select-database.png
-     :alt: Screenshot of database and table list
-     :figwidth: 700px
----
-title: Save the Connection File
-ref: save-connection-file
-level: 4
-stepnum: 7
-content: |
-  Save the data connection file and click :guilabel:`Finish`. If you
-  wish to re-use this connection in the future, you can select it from
-  the :guilabel:`Data -> Get External Data -> Existing Connections`
-  menu.
----
-title: Specify Worksheet Format
-ref: specify-worksheet-format
-level: 4
-stepnum: 8
-content: |
-  In the final dialog window you can specify a format for your
-  worksheet. Click :guilabel:`OK` when finished.
-...
+          
+          
+          

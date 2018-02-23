@@ -8,13 +8,13 @@
       You will insert data (in the form of BSON documents) into a collection in MongoDB. 
    time: 15
    prerequisites:
-     .. include:: /includes/steps/check_for_insert.rst
+     .. include:: /includes/steps/prereqs_crud.rst
    check_your_environment:
-     .. include:: /includes/steps/check_for_insert.rst
+     .. include:: /includes/steps/check_for_crud.rst
    considerations: NA
    procedure:
-     .. include:: /includes/steps/connect-excel-auth-plugin.rst
+     .. include:: /includes/steps/insert_server.rst
    summary: If you have completed the steps below properly, you should
-     have successfully added data to your mongodb instance.
+     have successfully added data to your mongodb instance. Hello!
    whats_next:
      Query the data you just added in: guide_to_find()
