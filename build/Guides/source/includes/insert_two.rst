@@ -1,0 +1,1 @@
+Now in our next guide, we will retrieve the information you just saved to MongoDB.

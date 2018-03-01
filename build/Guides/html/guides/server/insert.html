@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css' /><title>Create: Insert Data Into MongoDB &mdash; MongoDB Connector for BI 2.3</title><link rel="shortcut icon" href="https://media.mongodb.org/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index" />
+
+  <meta name="release" content="2.3"/>
+  <meta name="version" content="master"/>
+  <meta name="DC.Source" content="https://github.com/mongodb/docs-bi-connector/blob/Guides/source/guides/server/insert.txt"/>
+  <meta property="og:image" content="http://s3.amazonaws.com/info-mongodb-com/_com_assets/cms/mongodb-for-giant-ideas-bbab5c3cf8.png">
+  <meta property="og:image:secure_url" content="https://webassets.mongodb.com/_com_assets/cms/mongodb-for-giant-ideas-bbab5c3cf8.png">
+    <link rel="canonical" href="http://docs.mongodb.com/bi-connector/master/guides/server/insert" />
+  
+   <link rel="stylesheet" href="../../_static/mongodb-docs.css" type="text/css" />
+   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+   <link rel="stylesheet" href="../../_static/css/navbar.min.css" type="text/css" />
+    
+  <script type="text/javascript" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin=anonymous></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/lib/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../_static/controller.js"></script>
+
+  <script type="text/javascript">
+     function showNav() {
+       document.getElementById("sphinxsidebar").style.display = "block";
+       document.getElementById("left-column").style.display = "flex";
+       document.getElementById("showNav").style.display="none";
+     }
+
+     function closeNav() {
+       document.getElementById("showNav").style.display="flex";
+       document.getElementById("left-column").style.display="none";
+     }
+  </script>
+      <link rel="search" type="application/opensearchdescription+xml" href="https://docs.mongodb.com/osd.xml" title="MongoDB Help"/>
+<!-- <link rel="index" title="Index" href="../../genindex.html" /> -->
+<link rel="search" title="Search" href="../../search.html" />
+<link rel="top" title="MongoDB Connector for BI" href="../../index.html" /><script type='text/javascript'>
+   var gptadslots=[];
+   var googletag = googletag || {};
+   googletag.cmd = googletag.cmd || [];
+   (function(){ var gads = document.createElement('script');
+      gads.async = true; gads.type = 'text/javascript';
+      var useSSL = 'https:' == document.location.protocol;
+      gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+      var node = document.getElementsByTagName('script')[0];
+      node.parentNode.insertBefore(gads, node);
+   })();
+</script>
+
+<script type="text/javascript">
+   googletag.cmd.push(function() {
+
+      var pathname = location.href;
+      
+      if ( (pathname.indexOf("auth") >= 0) || (pathname.indexOf("security") >= 0) ) {
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org/security', [[160,600],[243,202],[293,244]],'mongodb-docs-1').addService(googletag.pubads());
+      } else if ( (pathname.indexOf("crud") >= 0) ||  (pathname.indexOf("query") >= 0) || (pathname.indexOf("insert") >= 0) || (pathname.indexOf("update") >= 0) || (pathname.indexOf("remove") >= 0) || (pathname.indexOf("delete") >= 0) || (pathname.indexOf("aggregation") >= 0) ) {
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org/crud', [[160,600],[243,202],[293,244]],'mongodb-docs-1').addService(googletag.pubads());
+      } else if (pathname.indexOf("shard") >= 0) {
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org/sharding', [[160,600],[243,202],[293,244]],'mongodb-docs-1').addService(googletag.pubads());
+      } else if (pathname.indexOf("replica") >= 0) {
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org/replication', [[160,600],[243,202],[293,244]],'mongodb-docs-1').addService(googletag.pubads());
+      } else if (pathname.indexOf("model") >= 0) {
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org/data-modeling', [[160,600],[243,202],[293,244]],'mongodb-docs-1').addService(googletag.pubads());
+      } else if (pathname.indexOf("administration") >= 0) {
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org/support', [[160,600],[243,202],[293,244]],'mongodb-docs-1').addService(googletag.pubads());
+      } else if (pathname.indexOf("install-mongodb-on-windows") >= 0) {
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org/install-mongodb-on-windows', [160, 600], 'mongodb-docs-1').addService(googletag.pubads());
+      } else if (pathname.indexOf("tutorial/getting-started") >= 0) {
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org/docs_server_gettingstarted', [160, 600], 'mongodb-docs-1').addService(googletag.pubads());
+      } else {
+         //Adslot 1 declaration
+         gptadslots[1]= googletag.defineSlot('/40039723/docs.mongodb.org', [[160,600],[243,202],[293,244]],'mongodb-docs-1').addService(googletag.pubads());
+      }
+      googletag.pubads().enableSingleRequest();
+      googletag.pubads().enableAsyncRendering();
+      googletag.enableServices();
+   });
+</script>
+  <script>
+    window['_fs_debug'] = false;
+    window['_fs_host'] = 'fullstory.com';
+    window['_fs_org'] = '54YFM';
+    window['_fs_namespace'] = 'FS';
+    (function(m,n,e,t,l,o,g,y){
+        if (e in m && m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'); return;}
+        g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+        o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+        y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+        g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){g(l,v)};
+        g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+        g.clearUserCookie=function(c,d,i){if(!c || document.cookie.match('fs_uid=[`;`]*`[`;`]*`[`;`]*`')){
+        d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+        ';path=/;expires='+new Date(0).toUTCString();i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}};
+    })(window,document,window['_fs_namespace'],'script','user');
+  </script></head>
+<body data-project="bi-connector" data-project-title="MongoDB Connector for BI" data-branch="Guides" data-enable-marian=1>
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-JQHP"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+     {'gtm.start': new Date().getTime(),event:'gtm.js'}
+   );var f=d.getElementsByTagName(s)[0],
+   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+   '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+   })(window,document,'script','dataLayer','GTM-JQHP');</script>
+  <!-- End Google Tag Manager -->
+<div id="navbar" data-navprops='{"links": [{"url": "https://docs.mongodb.com/manual/","text": "Server"},{"url": "https://docs.mongodb.com/ecosystem/drivers/","text": "Drivers"},{"url": "https://docs.mongodb.com/cloud/","text": "Cloud"},{"url": "https://docs.mongodb.com/tools/","text": "Tools","active": true},{"url": "https://docs.mongodb.com/tutorials/","text": "Tutorials"}]}'></div>
+      <script>
+        window.googleSearchCx = "014132741538533607290:cgznrev_wu0"
+	window.googleSearchPlaceholder = "Search BI Connector"
+        window.googleSearchResultsUrl = "https://docs.mongodb.com/bi-connector/master/search/"
+      </script>
+    <script src="../../_static/navbar.min.js"></script>
+  
+
+
+
+  <div class="content" >
+
+
+   <div id="left-column">
+         <aside id="sidebar" class="sidebar">
+             
+  <div class="sphinxsidebar" id="sphinxsidebar">
+    <div id="sphinxsidebarwrapper" class="sphinxsidebarwrapper"><a href="javascript:void(0)" class="closeNav" id="closeNav" onclick="closeNav()">Close &times;</a>
+
+
+<h3>
+  <a class="index-link" href="../../index.html">MongoDB Connector for BI</a>
+  
+    <div class="btn-group btn-group-xs pull-right">
+      <button type="button" class="version-button dropdown-toggle" data-toggle="dropdown">
+        2.4 (current)<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        
+          
+          <li class="active">
+          
+            <a href="#" data-path="bi-connector/master">2.4 (current)</a>
+          </li>
+        
+          
+          <li>
+          
+            <a class="version-selector" href="#" data-path="bi-connector/v2.3">2.3</a>
+          </li>
+        
+          
+          <li>
+          
+            <a class="version-selector" href="#" data-path="bi-connector/v2.2">2.2</a>
+          </li>
+        
+          
+          <li>
+          
+            <a class="version-selector" href="#" data-path="bi-connector/v2.1">2.1</a>
+          </li>
+        
+          
+          <li>
+          
+            <a class="version-selector" href="#" data-path="bi-connector/v2.0">2.0</a>
+          </li>
+        
+          
+          <li>
+          
+            <a class="version-selector" href="#" data-path="bi-connector/v1.1">1.1</a>
+          </li>
+        
+      </ul>
+    </div>
+
+</h3>
+
+
+    </div>
+  </div>
+           
+         </aside>
+
+   </div>
+
+
+    <div id="main-column" class="main-column">
+
+    <span id="showNav" class="showNav" onclick="showNav()">Navigation</span>
+
+
+      
+        <div class="document">
+            <div class="documentwrapper"><div class="bodywrapper">
+              <div class="body" data-pagename="guides/server/insert">
+                
+   <div class="bc">
+     
+      
+    
+  </div>
+                
+                  <div class="section" id="create-insert-data-into-mongodb">
+<h1>Create: Insert Data Into MongoDB<a class="headerlink" href="#create-insert-data-into-mongodb" title="Permalink to this headline">¶</a></h1>
+<div class="contents singlecol local topic" id="on-this-page">
+<p class="topic-title first">On this page</p>
+<ul class="simple">
+<li><a class="reference internal" href="#prerequisites" id="id3">Prerequisites</a></li>
+<li><a class="reference internal" href="#procedure" id="id4">Procedure</a></li>
+<li><a class="reference internal" href="#summary" id="id5">Summary</a></li>
+<li><a class="reference internal" href="#what-s-next" id="id6">What’s Next</a></li>
+</ul>
+</div>
+<p>You will insert data into a collection in MongoDB.</p>
+<p><em>Time required: 15 minutes</em></p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<div class="sequence-block"><div class="bullet-block"><div class="sequence-step">1</div></div><div class="section" id="install-mongodb">
+<h3>Install MongoDB<a class="headerlink" href="#install-mongodb" title="Permalink to this headline">¶</a></h3>
+<p>Link here to Install/Setup Guide (Windows, Linux, Atlas) – we need to fix the issue with mixed tab content
+before we populate this.</p>
+</div></div>
+<div class="sequence-block"><div class="bullet-block"><div class="sequence-step">2</div></div><div class="section" id="enable-authentication">
+<h3>Enable Authentication<a class="headerlink" href="#enable-authentication" title="Permalink to this headline">¶</a></h3>
+<p>Before you do anything, make sure you <a class="reference external" href="https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure">Enable authentication</a></p>
+</div></div>
+<div class="sequence-block"><div class="bullet-block"><div class="sequence-step">2</div></div><div class="section" id="install-clients">
+<h3>Install Clients<a class="headerlink" href="#install-clients" title="Permalink to this headline">¶</a></h3>
+<div class="tabs">
+  <ul class="tab-strip tab-strip--singleton" role="tablist" data-tab-preference="drivers">
+    <li class="tab-strip__element" data-tabid="shell" role="tab" aria-selected="true">Mongo Shell</li>
+    <li class="tab-strip__element" data-tabid="compass" role="tab" aria-selected="false">Compass</li>
+    <li class="tab-strip__element" data-tabid="python" role="tab" aria-selected="false">Python</li>
+    <li class="tab-strip__element" data-tabid="java-sync" role="tab" aria-selected="false">Java (Sync)</li>
+    <li class="tab-strip__element" data-tabid="nodejs" role="tab" aria-selected="false">Node.js</li>
+    <li class="tab-strip__element dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown">Other <span class="caret"></span></a>
+      <ul class="dropdown-menu tab-strip__dropdown" role="menu">
+        <li data-tabid="php" aria-selected="false">PHP</li>
+        <li data-tabid="motor" aria-selected="false">Motor</li>
+        <li data-tabid="csharp" aria-selected="false">C#</li>
+        <li data-tabid="perl" aria-selected="false">Perl</li>
+        <li data-tabid="ruby" aria-selected="false">Ruby</li>
+        <li data-tabid="scala" aria-selected="false">Scala</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="tabs__content" role="tabpanel">
+    <div class="tabpanel-shell"><p>Make sure you have <a class="reference external" href="http://mongodb.github.io/node-mongodb-native/3.0/installation-guide/installation-guide/">installed the shell</a></p>
+</div>
+<div class="tabpanel-compass"><p>Make sure you have <a class="reference external" href="https://docs.mongodb.com/compass/current/install/">installed Compass</a></p>
+</div>
+<div class="tabpanel-python"><p>Make sure you have <a class="reference external" href="http://api.mongodb.com/python/current/installation.html">installed pymongo</a></p>
+</div>
+<div class="tabpanel-java-sync"><p>Make sure you have <a class="reference external" href="http://mongodb.github.io/mongo-java-driver/3.6/driver/getting-started/installation/">installed the java driver</a></p>
+</div>
+<div class="tabpanel-nodejs"><p>Make sure you have <a class="reference external" href="http://mongodb.github.io/node-mongodb-native/3.0/installation-guide/installation-guide/">installed the node.js driver</a></p>
+</div>
+<div class="tabpanel-php"><p>Make sure you have <a class="reference external" href="https://docs.mongodb.com/php-library/current/tutorial/install-php-library/">installed the PHP library</a></p>
+</div>
+<div class="tabpanel-motor"><p>Make sure you have <a class="reference external" href="https://motor.readthedocs.io/en/stable/installation.html">installed the motor library</a></p>
+</div>
+<div class="tabpanel-csharp"><p>Make sure you have <a class="reference external" href="http://mongodb.github.io/mongo-csharp-driver/2.2/getting_started/installation/">installed the csharp driver</a></p>
+</div>
+<div class="tabpanel-perl"><p>Make sure you have <a class="reference external" href="https://github.com/mongodb/mongo-perl-driver/blob/master/INSTALL.md">installed the perl driver</a></p>
+</div>
+<div class="tabpanel-ruby"><p>Make sure you have <a class="reference external" href="https://docs.mongodb.com/ruby-driver/master/installation/">installed the Ruby driver</a></p>
+</div>
+<div class="tabpanel-scala"><p>Make sure you have <a class="reference external" href="http://mongodb.github.io/mongo-scala-driver/2.1/getting-started/installation-guide/">installed the Scala driver</a></p>
+    </div>
+  </div>
+</div></div></div>
+<div class="sequence-block"><div class="bullet-block"><div class="sequence-step">2</div></div><div class="section" id="connect">
+<h3>Connect<a class="headerlink" href="#connect" title="Permalink to this headline">¶</a></h3>
+<p>Before you connect to MongoDB, whether it is a standalone instance or an instance on the Cloud,
+you need to determine what the connection string is for your access. Check out our <a class="reference external" href="http://docs.mongodb.com/connectionStringStuffHere">connection string
+discoverer</a> to get the string you need, and replace the references
+to CONNECTION_STRING below with the appropriate string.</p>
+<div class="tabs">
+  <ul class="tab-strip tab-strip--singleton" role="tablist" data-tab-preference="drivers">
+    <li class="tab-strip__element" data-tabid="shell" role="tab" aria-selected="true">Mongo Shell</li>
+    <li class="tab-strip__element" data-tabid="compass" role="tab" aria-selected="false">Compass</li>
+    <li class="tab-strip__element" data-tabid="python" role="tab" aria-selected="false">Python</li>
+    <li class="tab-strip__element" data-tabid="java-sync" role="tab" aria-selected="false">Java (Sync)</li>
+    <li class="tab-strip__element" data-tabid="nodejs" role="tab" aria-selected="false">Node.js</li>
+    <li class="tab-strip__element dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown">Other <span class="caret"></span></a>
+      <ul class="dropdown-menu tab-strip__dropdown" role="menu">
+        <li data-tabid="php" aria-selected="false">PHP</li>
+        <li data-tabid="motor" aria-selected="false">Motor</li>
+        <li data-tabid="csharp" aria-selected="false">C#</li>
+        <li data-tabid="perl" aria-selected="false">Perl</li>
+        <li data-tabid="ruby" aria-selected="false">Ruby</li>
+        <li data-tabid="scala" aria-selected="false">Scala</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="tabs__content" role="tabpanel">
+    <div class="tabpanel-shell"><p>If you have properly installed mongo, you should be able to access your mongod
+instance locally or on the cloud by running:</p>
+<blockquote>
+<div><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-sh"><div class="highlight"><pre><span></span>mongo --username user --pwd password CONNECTION_STRING
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>Alternatively you can authenticate once you run the shell command</p>
+<blockquote>
+<div><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-sh"><div class="highlight"><pre><span></span>mongo CONNECTION_STRING
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>With</p>
+<blockquote>
+<div><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-sh"><div class="highlight"><pre><span></span>db.auth<span class="o">(</span>user:<span class="s2">&quot;username&quot;</span>, pwd:<span class="s2">&quot;password&quot;</span><span class="o">})</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</div>
+<div class="tabpanel-compass"><p>If you have properly installed ::compass::, you will be able to <a class="reference external" href="https://docs.mongodb.com/compass/current/connect/#connect">connect</a></p>
+</div>
+<div class="tabpanel-python"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">from</span> <span class="nx">pymongo</span> <span class="kr">import</span> <span class="nx">MongoClient</span>
+
+<span class="nx">connection_string</span> <span class="o">=</span> <span class="s1">&#39;mongodb://testuser:password@localhost:27017/test?authSource=admin&#39;</span>
+
+    <span class="nx">client</span> <span class="o">=</span> <span class="nx">MongoClient</span><span class="p">(</span><span class="nx">connection_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-java-sync"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-java"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">uriString</span> <span class="o">=</span> <span class="s">&quot;mongodb://testuser:password@localhost:27017/test?authSource=admin&quot;</span><span class="o">;</span>
+    <span class="n">MongoClientURI</span> <span class="n">uri</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MongoClientURI</span><span class="o">(</span><span class="n">uriString</span><span class="o">);</span>
+        <span class="c1">//note that java connections are not initialized unless an operation such as a find() or count() is</span>
+        <span class="c1">//executed</span>
+        <span class="n">MongoClient</span> <span class="n">mongoClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MongoClient</span><span class="o">(</span><span class="n">uri</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-nodejs"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">MongoClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">MongoClient</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;util&#39;</span><span class="p">).</span><span class="nx">format</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="s1">&#39;testuser&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
+
+<span class="c1">// Connection URL</span>
+<span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">f</span><span class="p">(</span><span class="s1">&#39;mongodb://%s:%s@localhost:27017/test?authSource=admin&#39;</span><span class="p">,</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>
+
+<span class="c1">// Use connect method to connect to the Server</span>
+<span class="nx">MongoClient</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+   <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connected correctly to server&quot;</span><span class="p">);</span>
+
+   <span class="nx">client</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-php"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="c1">// Manager Class</span>
+<span class="nv">$manager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MongoDB\Driver\Manager</span><span class="p">(</span><span class="s2">&quot;mongodb://testuser:password@localhost:27017/test?authSource=admin&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-motor"><p>Motor doesn’t connect to MongoDB until it runs an operation against the database.
+So “creating” a connection merely creates a handle to the connection object.</p>
+</div>
+<div class="tabpanel-csharp"><p>Make sure you have <a class="reference external" href="http://mongodb.github.io/mongo-csharp-driver/2.2/getting_started/installation/">installed the csharp driver</a></p>
+</div>
+<div class="tabpanel-perl"><p>Make sure you have <a class="reference external" href="https://github.com/mongodb/mongo-perl-driver/blob/master/INSTALL.md">installed the perl driver</a></p>
+</div>
+<div class="tabpanel-ruby"><p>Make sure you have <a class="reference external" href="https://docs.mongodb.com/ruby-driver/master/installation/">installed the Ruby driver</a></p>
+</div>
+<div class="tabpanel-scala"><p>Make sure you have <a class="reference external" href="http://mongodb.github.io/mongo-scala-driver/2.1/getting-started/installation-guide/">installed the Scala driver</a></p>
+    </div>
+  </div>
+</div></div></div>
+</div>
+<div class="section" id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h2>
+<p>NA</p>
+<div class="sequence-block"><div class="bullet-block"><div class="sequence-step">1</div></div><div class="section" id="switch-to-the-test-database">
+<h3>Switch to the test database<a class="headerlink" href="#switch-to-the-test-database" title="Permalink to this headline">¶</a></h3>
+<p>Make sure you have followed the prerequisites above to connect to the MongoDB instance and bind
+to the ‘test’ database.</p>
+</div></div>
+<div class="sequence-block"><div class="bullet-block"><div class="sequence-step">2</div></div><div class="section" id="insert-a-single-document">
+<h3>Insert a Single Document<a class="headerlink" href="#insert-a-single-document" title="Permalink to this headline">¶</a></h3>
+<p>Now you are ready to insert your first data into MongoDB.
+MongoDB uses JSON documents to populate the database,
+which are stored internally as BSON, a binary form of JSON. JSON stands
+for JavaScript Object Notation, and it’s a great way to
+store rich data.</p>
+<p>The data is stored in a kind of table called
+a collection. Like SQL tables, you can have many collections
+in a database.</p>
+<div class="tabs">
+  <ul class="tab-strip tab-strip--singleton" role="tablist" data-tab-preference="drivers">
+    <li class="tab-strip__element" data-tabid="shell" role="tab" aria-selected="true">Mongo Shell</li>
+    <li class="tab-strip__element" data-tabid="compass" role="tab" aria-selected="false">Compass</li>
+    <li class="tab-strip__element" data-tabid="python" role="tab" aria-selected="false">Python</li>
+    <li class="tab-strip__element" data-tabid="java-sync" role="tab" aria-selected="false">Java (Sync)</li>
+    <li class="tab-strip__element" data-tabid="nodejs" role="tab" aria-selected="false">Node.js</li>
+    <li class="tab-strip__element dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown">Other <span class="caret"></span></a>
+      <ul class="dropdown-menu tab-strip__dropdown" role="menu">
+        <li data-tabid="php" aria-selected="false">PHP</li>
+        <li data-tabid="motor" aria-selected="false">Motor</li>
+        <li data-tabid="java-async" aria-selected="false">Java (Async)</li>
+        <li data-tabid="csharp" aria-selected="false">C#</li>
+        <li data-tabid="perl" aria-selected="false">Perl</li>
+        <li data-tabid="ruby" aria-selected="false">Ruby</li>
+        <li data-tabid="scala" aria-selected="false">Scala</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="tabs__content" role="tabpanel">
+    <div class="tabpanel-shell"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, MongoDB adds the <code class="docutils literal"><span class="pre">_id</span></code> field with an
+ObjectId value to the new document.</p>
+</div>
+<div class="tabpanel-compass"><p>To insert a single document using <span class="xref std std-ref">MongoDB Compass</span>:</p>
+<ol class="arabic">
+<li><p class="first">Navigate to the collection you wish to insert the document
+into:</p>
+<ol class="loweralpha simple">
+<li>In the left-hand MongoDB Compass navigation pane, click
+the database to which your target collection belongs.</li>
+<li>From the database view, click the target collection name.</li>
+</ol>
+</li>
+<li><p class="first">Click the <span class="guilabel">Insert Document</span> button:</p>
+<div class="figure">
+<img alt="images/compass-insert-button.png" src="images/compass-insert-button.png" />
+</div>
+</li>
+<li><p class="first">For each field in the document, select the field type and
+fill in the field name and value. Add fields by clicking
+the last line number, then clicking
+<span class="guilabel">Add Field After …</span></p>
+<ul class="simple">
+<li>For <code class="docutils literal"><span class="pre">Object</span></code> types, add nested fields by clicking the
+last field’s number and selecting
+<span class="guilabel">Add Field After …</span></li>
+<li>For <code class="docutils literal"><span class="pre">Array</span></code> types, add additional elements to the array
+by clicking the last element’s line number and selecting
+<span class="guilabel">Add Array Element After …</span></li>
+</ul>
+</li>
+<li><p class="first">Once all fields have been filled out, click <span class="guilabel">Insert</span>.</p>
+</li>
+</ol>
+<p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">test.inventory</span></code> collection:</p>
+</div>
+<div class="tabpanel-python"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the PyMongo driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field
+with an ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-java-sync"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field with an
+ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-nodejs"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the Node.js driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field
+with an ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-php"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the PHP driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field
+with an ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-motor"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the Motor driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field
+with an ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-java-async"><p><a class="reference external" href="http://mongodb.github.io/mongo-java-driver-reactivestreams/1.6/javadoc/com/mongodb/reactivestreams/client/MongoCollection.html#insertOne(TDocument)">com.mongodb.reactivestreams.client.MongoCollection.insertOne</a>
+inserts a <em>single</em> <a class="reference external" href="https://docs.mongodb.com/manual/core/document/#bson-document-format" title="(in mongodb-manual v3.6)"><span class="xref std std-ref">document</span></a> into
+a collection with the <a class="reference external" href="http://mongodb.github.io/mongo-java-driver-reactivestreams/1.6/">Java Reactive Streams
+Driver</a>:</p>
+<div class="button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-json"><div class="highlight"><pre><span></span>{ item: &quot;canvas&quot;, qty: 100, tags: [&quot;cotton&quot;], size: { h: 28, w: 35.5, uom: &quot;cm&quot; } }
+</pre></div>
+</div>
+</div>
+<p>The following example inserts the document above into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field with an
+ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-csharp"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the C# driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field
+with an ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-perl"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the Perl driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field
+with an ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-ruby"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the Ruby driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field
+with an ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+</div>
+<div class="tabpanel-scala"><p>The following example inserts a new document into the
+<code class="docutils literal"><span class="pre">inventory</span></code> collection. If the document does not specify
+an <code class="docutils literal"><span class="pre">_id</span></code> field, the Scala driver adds the <code class="docutils literal"><span class="pre">_id</span></code> field
+with an ObjectId value to the new document. See
+<a class="reference external" href="https://docs.mongodb.com/manual/tutorial/insert-documents/#write-op-insert-behavior" title="(in mongodb-manual v3.6)"><span>Insert Behavior</span></a>.</p>
+    </div>
+  </div>
+</div><div class="tabs">
+  <ul class="tab-strip tab-strip--singleton" role="tablist" data-tab-preference="drivers">
+    <li class="tab-strip__element" data-tabid="shell" role="tab" aria-selected="true">Mongo Shell</li>
+    <li class="tab-strip__element" data-tabid="compass" role="tab" aria-selected="false">Compass</li>
+    <li class="tab-strip__element" data-tabid="python" role="tab" aria-selected="false">Python</li>
+    <li class="tab-strip__element" data-tabid="java-sync" role="tab" aria-selected="false">Java (Sync)</li>
+    <li class="tab-strip__element" data-tabid="nodejs" role="tab" aria-selected="false">Node.js</li>
+    <li class="tab-strip__element dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown">Other <span class="caret"></span></a>
+      <ul class="dropdown-menu tab-strip__dropdown" role="menu">
+        <li data-tabid="php" aria-selected="false">PHP</li>
+        <li data-tabid="motor" aria-selected="false">Motor</li>
+        <li data-tabid="java-async" aria-selected="false">Java (Async)</li>
+        <li data-tabid="csharp" aria-selected="false">C#</li>
+        <li data-tabid="perl" aria-selected="false">Perl</li>
+        <li data-tabid="ruby" aria-selected="false">Ruby</li>
+        <li data-tabid="scala" aria-selected="false">Scala</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="tabs__content" role="tabpanel">
+    <div class="tabpanel-shell"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">(</span>
+   <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;canvas&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">tags</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cotton&quot;</span><span class="p">],</span> <span class="nx">size</span><span class="o">:</span> <span class="p">{</span> <span class="nx">h</span><span class="o">:</span> <span class="mi">28</span><span class="p">,</span> <span class="nx">w</span><span class="o">:</span> <span class="mf">35.5</span><span class="p">,</span> <span class="nx">uom</span><span class="o">:</span> <span class="s2">&quot;cm&quot;</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-compass"><div class="figure">
+<img alt="images/compass-insert-document-inventory.png" src="images/compass-insert-document-inventory.png" />
+</div>
+</div>
+<div class="tabpanel-python"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-python"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">inventory</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="s2">&quot;canvas&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;qty&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+     <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cotton&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;h&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="mf">35.5</span><span class="p">,</span> <span class="s2">&quot;uom&quot;</span><span class="p">:</span> <span class="s2">&quot;cm&quot;</span><span class="p">}})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-java-sync"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-java"><div class="highlight"><pre><span></span><span class="n">Document</span> <span class="n">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Document</span><span class="o">(</span><span class="s">&quot;item&quot;</span><span class="o">,</span> <span class="s">&quot;canvas&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;qty&quot;</span><span class="o">,</span> <span class="mi">100</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;tags&quot;</span><span class="o">,</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">&quot;cotton&quot;</span><span class="o">));</span>
+
+<span class="n">Document</span> <span class="n">size</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Document</span><span class="o">(</span><span class="s">&quot;h&quot;</span><span class="o">,</span> <span class="mi">28</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;w&quot;</span><span class="o">,</span> <span class="mf">35.5</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;uom&quot;</span><span class="o">,</span> <span class="s">&quot;cm&quot;</span><span class="o">);</span>
+<span class="n">canvas</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;size&quot;</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+
+<span class="n">collection</span><span class="o">.</span><span class="na">insertOne</span><span class="o">(</span><span class="n">canvas</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-nodejs"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;inventory&#39;</span><span class="p">).</span><span class="nx">insertOne</span><span class="p">({</span>
+  <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;canvas&quot;</span><span class="p">,</span>
+  <span class="nx">qty</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="nx">tags</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cotton&quot;</span><span class="p">],</span>
+  <span class="nx">size</span><span class="o">:</span> <span class="p">{</span> <span class="nx">h</span><span class="o">:</span> <span class="mi">28</span><span class="p">,</span> <span class="nx">w</span><span class="o">:</span> <span class="mf">35.5</span><span class="p">,</span> <span class="nx">uom</span><span class="o">:</span> <span class="s2">&quot;cm&quot;</span> <span class="p">}</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// process result</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-php"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-php"><div class="highlight"><pre><span></span><span class="x">$insertOneResult = $db-&gt;inventory-&gt;insertOne([</span>
+<span class="x">    &#39;item&#39; =&gt; &#39;canvas&#39;,</span>
+<span class="x">    &#39;qty&#39; =&gt; 100,</span>
+<span class="x">    &#39;tags&#39; =&gt; [&#39;cotton&#39;],</span>
+<span class="x">    &#39;size&#39; =&gt; [&#39;h&#39; =&gt; 28, &#39;w&#39; =&gt; 35.5, &#39;uom&#39; =&gt; &#39;cm&#39;],</span>
+<span class="x">]);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-motor"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-python"><div class="highlight"><pre><span></span><span class="n">await</span> <span class="n">db</span><span class="o">.</span><span class="n">inventory</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="s2">&quot;canvas&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;qty&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+     <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cotton&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;h&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="mf">35.5</span><span class="p">,</span> <span class="s2">&quot;uom&quot;</span><span class="p">:</span> <span class="s2">&quot;cm&quot;</span><span class="p">}})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-java-async"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-java"><div class="highlight"><pre><span></span><span class="n">Document</span> <span class="n">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Document</span><span class="o">(</span><span class="s">&quot;item&quot;</span><span class="o">,</span> <span class="s">&quot;canvas&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;qty&quot;</span><span class="o">,</span> <span class="mi">100</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;tags&quot;</span><span class="o">,</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">&quot;cotton&quot;</span><span class="o">));</span>
+
+<span class="n">Document</span> <span class="n">size</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Document</span><span class="o">(</span><span class="s">&quot;h&quot;</span><span class="o">,</span> <span class="mi">28</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;w&quot;</span><span class="o">,</span> <span class="mf">35.5</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;uom&quot;</span><span class="o">,</span> <span class="s">&quot;cm&quot;</span><span class="o">);</span>
+<span class="n">canvas</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;size&quot;</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+
+<span class="n">Publisher</span><span class="o">&lt;</span><span class="n">Success</span><span class="o">&gt;</span> <span class="n">insertOnePublisher</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="na">insertOne</span><span class="o">(</span><span class="n">canvas</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-csharp"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-c#"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">document</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BsonDocument</span>
+<span class="p">{</span>
+    <span class="p">{</span> <span class="s">&quot;item&quot;</span><span class="p">,</span> <span class="s">&quot;canvas&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">&quot;qty&quot;</span><span class="p">,</span> <span class="m">100</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">&quot;tags&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">BsonArray</span> <span class="p">{</span> <span class="s">&quot;cotton&quot;</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">&quot;size&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">BsonDocument</span> <span class="p">{</span> <span class="p">{</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="m">28</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="m">35.5</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;uom&quot;</span><span class="p">,</span> <span class="s">&quot;cm&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">};</span>
+<span class="n">collection</span><span class="p">.</span><span class="n">InsertOne</span><span class="p">(</span><span class="n">document</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-perl"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-perl"><div class="highlight"><pre><span></span><span class="nv">$db</span><span class="o">-&gt;</span><span class="n">coll</span><span class="p">(</span><span class="s">&quot;inventory&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">insert_one</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="n">item</span> <span class="o">=&gt;</span> <span class="s">&quot;canvas&quot;</span><span class="p">,</span>
+        <span class="n">qty</span>  <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">tags</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s">&quot;cotton&quot;</span><span class="p">],</span>
+        <span class="n">size</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">h</span> <span class="o">=&gt;</span> <span class="mi">28</span><span class="p">,</span> <span class="n">w</span> <span class="o">=&gt;</span> <span class="mf">35.5</span><span class="p">,</span> <span class="n">uom</span> <span class="o">=&gt;</span> <span class="s">&quot;cm&quot;</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-ruby"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-ruby"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">[</span><span class="ss">:inventory</span><span class="o">].</span><span class="n">insert_one</span><span class="p">({</span> <span class="ss">item</span><span class="p">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
+                                <span class="ss">qty</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                                <span class="ss">tags</span><span class="p">:</span> <span class="o">[</span> <span class="s1">&#39;cotton&#39;</span> <span class="o">]</span><span class="p">,</span>
+                                <span class="ss">size</span><span class="p">:</span> <span class="p">{</span> <span class="ss">h</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="ss">w</span><span class="p">:</span> <span class="mi">35</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="ss">uom</span><span class="p">:</span> <span class="s1">&#39;cm&#39;</span> <span class="p">}</span> <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tabpanel-scala"><div class="copyable-code button-code-block">
+<div class="button-row">
+<a class="code-button--copy code-button" role="button">
+copy</a>
+</div>
+<div class="copyable-code-block highlight-scala"><div class="highlight"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">insertOne</span><span class="o">(</span>
+  <span class="nc">Document</span><span class="o">(</span><span class="s">&quot;item&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;canvas&quot;</span><span class="o">,</span> <span class="s">&quot;qty&quot;</span> <span class="o">-&gt;</span> <span class="mi">100</span><span class="o">,</span> <span class="s">&quot;tags&quot;</span> <span class="o">-&gt;</span> <span class="nc">Seq</span><span class="o">(</span><span class="s">&quot;cotton&quot;</span><span class="o">),</span> <span class="s">&quot;size&quot;</span> <span class="o">-&gt;</span> <span class="nc">Document</span><span class="o">(</span><span class="s">&quot;h&quot;</span> <span class="o">-&gt;</span> <span class="mi">28</span><span class="o">,</span> <span class="s">&quot;w&quot;</span> <span class="o">-&gt;</span> <span class="mf">35.5</span><span class="o">,</span> <span class="s">&quot;uom&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;cm&quot;</span><span class="o">))</span>
+<span class="o">).</span><span class="n">execute</span><span class="o">()</span>
+</pre></div>
+</div>
+</div>
+    </div>
+  </div>
+</div></div></div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>If you have successfully completed this guide, you have created your first mongoDB data.
+Now in the next guide, you will retrieve the information you just saved.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s Next<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure">Read Data From MongoDB</a></p>
+</div>
+</div>
+
+                
+    <div id="btnv">
+    </div>
+                  <div class="footer">
+                    <div class="copyright">
+                      <p>&copy; MongoDB, Inc 2008-present. MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc.</p>
+                    </div>
+                  </div>
+              </div></div>
+            </div>
+        </div>
+    </div>
+    <div class="right-column">
+      <div class="wrapper"> <div id='mongodb-docs-1'>
+   <script type='text/javascript'>
+      googletag.cmd.push(function() { googletag.display('mongodb-docs-1'); });
+   </script>
+</div>
+           <div class="social">
+             <a class="twitter-icon" href="https://twitter.com/MongoDB"><i class="fa fa-twitter-square"></i></a>
+             <a class="youtube-icon" href="https://www.youtube.com/user/MongoDB"><i class="fa fa-youtube-square"></i></a>
+             <a class="facebook-icon" href="https://www.facebook.com/mongodb"><i class="fa fa-facebook-square"></i></a>
+             <a class="stack-overflow-icon" href="https://stackoverflow.com/tags/mongodb/info"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
+           </div>
+        
+      </div>
+    </div>
+    
+      <div id="rating-panel"></div>
+    
+    <div class="clearfix"></div>
+  </div>
+  
+
+  <script type="text/javascript">
+  // Bootstrap array of links that should trigger a full page reload
+  window.docsExcludedNav = ['/'];
+  </script></body>
+</html>
