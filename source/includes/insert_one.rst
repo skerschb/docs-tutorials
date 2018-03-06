@@ -65,7 +65,14 @@
          an ``_id`` field, the driver adds the ``_id`` field with an
          ObjectId value to the new document. See
          :ref:`write-op-insert-behavior`.
-
+         
+         First, bind to the ``inventory`` collection.
+         
+         .. cssclass:: copyable-code
+         .. code-block:: java
+         
+            MongoCollection collection = mongoDB.getCollection("inventory");
+            
      - id: java-async
        content: |
          `com.mongodb.reactivestreams.client.MongoCollection.insertOne <http://mongodb.github.io/mongo-java-driver-reactivestreams/1.6/javadoc/com/mongodb/reactivestreams/client/MongoCollection.html#insertOne(TDocument)>`_

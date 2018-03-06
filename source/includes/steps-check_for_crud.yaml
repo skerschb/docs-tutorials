@@ -39,17 +39,18 @@ stepnum: 2
 content: |
   If you have properly installed mongo, you should be able to access your mongod
   instance locally or on the cloud by running:
-    .. cssclass:: copyable-code
-    .. code-block:: sh
+  
+  .. cssclass:: copyable-code
+  .. code-block:: sh
 
-       mongo --port [yourport] -u "[yourUserName]" -p "[yourPassword]" --authenticationDatabase "admin"
+     mongo --port [yourport] -u "[yourUserName]" -p "[yourPassword]" --authenticationDatabase "admin"
     
   If a mongo shell successfully starts, you will see some log output to the console
   and then a command prompt. Run the following command to make sure you are running mongo shell,
   it will return the version number of the shell.
     
-    .. cssclass:: copyable-code
-    .. code-block:: sh
+  .. cssclass:: copyable-code
+  .. code-block:: sh
     
-       db.version()
+     db.version()
 ...

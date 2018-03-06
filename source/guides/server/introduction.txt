@@ -1,0 +1,25 @@
+.. guide::
+   title: Introduction To MongoDB
+   author: assorted
+   type: Getting Started
+   level: beginner
+   product_version: 3.6
+   result_description:
+     You will create a database model for your first MongoDB database.
+   time: 15
+   prerequisites:
+     NA
+   check_your_environment:
+     NA
+   considerations: NA
+   procedure:
+     .. include:: /includes/steps/intro_server.rst
+   summary:
+     If you have successfully completed this guide, you will have a basic idea of how MongoDB stores data.
+   whats_next:
+     Create your first MongoDB data with the next guide -- 
+     `Create: Insert Data Into MongoDB
+     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+   seealso:
+     stuff
+     

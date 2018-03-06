@@ -1,9 +1,3 @@
-
-Before you connect to MongoDB, whether it is a standalone instance or an instance on the Cloud,
-you need to determine what the connection string is for your access. Check out our `connection string
-discoverer <http://docs.mongodb.com/connectionStringStuffHere>`__ to get the string you need, and replace the references
-to CONNECTION_STRING below with the appropriate string.
-
 .. tabs-drivers::
 
    tabs:
@@ -14,22 +8,23 @@ to CONNECTION_STRING below with the appropriate string.
            .. cssclass:: copyable-code
            .. code-block:: sh
 
-              mongo --username user --pwd password CONNECTION_STRING
+              mongo <connection_string>
               
          Alternatively you can authenticate once you run the shell command
            
            .. cssclass:: copyable-code
            .. code-block:: sh
               
-              mongo CONNECTION_STRING
+              mongo <hostname>:<port>
               
          With
         
            .. cssclass:: copyable-code
            .. code-block:: sh
               
+              use admin
               db.auth(user:"username", pwd:"password"})
-        
+           
            
      - id: compass
        content: |
@@ -38,13 +33,13 @@ to CONNECTION_STRING below with the appropriate string.
 
      - id: python
        content: |
-         .. class:: copyable-code
-         .. code-block:: javascript
+         Connect to the MongoDB instance and authenticate.
+         
+         .. cssclass:: copyable-code
+         .. code-block:: sh
 
             from pymongo import MongoClient
-            
-            connection_string = 'mongodb://testuser:password@localhost:27017/test?authSource=admin'
-	        
+            connection_string = "<connection-string>"
 	        client = MongoClient(connection_string)
          
      - id: motor
@@ -55,18 +50,23 @@ to CONNECTION_STRING below with the appropriate string.
 
      - id: java-sync
        content: |
+       
          .. cssclass:: copyable-code
          .. code-block:: java
          
-            final String uriString = "mongodb://testuser:password@localhost:27017/test?authSource=admin";
+            final String uriString = "<connection-string>";
             	MongoClientURI uri = new MongoClientURI(uriString);
 		    //note that java connections are not initialized unless an operation such as a find() or count() is
 		    //executed
 		    MongoClient mongoClient = new MongoClient(uri);
+		    
 	
    
      - id: nodejs
        content: |
+         Aha! The node connection string is a little different due to the encoding required on the uri.
+         See the code below and adjust accordingly to your parameters.
+         
          .. cssclass:: copyable-code
          .. code-block:: javascript
             
@@ -95,8 +95,10 @@ to CONNECTION_STRING below with the appropriate string.
          .. cssclass:: copyable-code
          .. code-block:: php
          
-            <?php
+   	        <?php
 
+            use MongoDB\Database;
+ 
             // Manager Class
             $manager = new MongoDB\Driver\Manager("mongodb://testuser:password@localhost:27017/test?authSource=admin");
          

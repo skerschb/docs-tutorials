@@ -1,0 +1,130 @@
+title: Define Your Data Points
+ref: define_dp
+level: 4
+stepnum: 1
+content: |
+  Decide which fields you would like to capture, and how
+  they relate to each other. For our example we are using
+  an inventory database, which tracks items and their
+  quantities and properties.
+  
+  Here is an example of an inventory database that gives us
+  some details about inventory items we are tracking.
+  
+  .. list-table::
+     :header-rows: 1
+     :widths: auto
+
+     * - name
+       - quantity
+       - size
+       - status
+       - tags
+       - grades
+
+     * - journal
+       - 25
+       - 14x21,cm
+       - A
+       - brown, lined
+       - A, 9
+       
+     * - notebook
+       - 50
+       - 8.5x11,in
+       - A
+       - college-ruled,perforated
+       - B, 8
+       
+     * - paper
+       - 100
+       - 8.5x11,in
+       - D
+       - watercolor
+       - C, 10
+
+     * - planner
+       - 75
+       - 22.85x30,cm
+       - D
+       - 2019
+       - D, 10
+       
+     * - postcard
+       - 45
+       - 10x,cm
+       - D
+       - double-sided,white   
+       - F, 2
+
+---
+       
+title: Create an Example JSON message
+ref: JSON_message
+level: 4
+stepnum: 1
+content: |
+  
+  While a table might seem like a good place to store data, as you can see
+  from the example above, there are fields in this database that require
+  multiple values and would not work well in a single column (size, tags, grades). 
+  
+  In a sql database you might solve this problem by creating a ``relational table``.
+  
+  In MongoDB data is stored as embedded data within a document, or record.
+  
+  In your data example, decide which fields require multiple values. These fields
+  will be candidates for arrays or objects within your JSON document.
+  
+  For example, in the data above, size might consist of three fields:
+  
+  .. class:: copyable-code
+  .. code-block:: javascript
+  
+     h: 14, w: 21, uom: "cm"
+     
+  And grades might be split into:
+  
+  .. class:: copyable-code
+  .. code-block:: javascript
+  
+     letter: A, score: 9
+  
+  In addition, you might want to be able to handle multiple grades
+  per item. So you might have the need to store a list of scores, like so:
+  
+  .. class:: copyable-code
+  .. code-block:: javascript
+  
+    [ letter: A, score: 9
+      letter: B, score: 7
+      letter: D, score: 5 ]
+  
+---      
+title: Put Your Data in JSON format
+ref: json_implement
+level: 4
+stepnum: 3
+content: |
+  To look at things the MongoDB way, first understand that data is stored as JSON
+  documents, and not tables with columns and rows. You define these documents
+  as you choose, and you can choose to provide a well-defined schema (defined data points),
+  or leave your schema open to change as your application changes.
+  
+  A JSON document that might store an inventory item might look like
+  
+  .. class:: copyable-code
+  .. code-block:: javascript
+  
+     { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A", grades},
+     { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
+     { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+     { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+     { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
+     
+  In this JSON example, we can embed data within our data points.
+  
+     
+  
+  
+  

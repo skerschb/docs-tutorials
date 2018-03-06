@@ -1,4 +1,4 @@
-title: Install MongoDB
+title: Access to a MongoDB Server
 ref: process-mongodb
 level: 4
 stepnum: 1
@@ -6,25 +6,33 @@ content: |
   Link here to Install/Setup Guide (Windows, Linux, Atlas) -- we need to fix the issue with mixed tab content
   before we populate this.
 ---
-title: Enable Authentication
+title: Authentication Enabled
 ref: auth
 level: 4
 stepnum: 2
 content: |
-  Before you do anything, make sure you `Enable authentication
-  <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+  For standalone instances of MongoDB, make sure you `Enable authentication
+  <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__.
+  Without authentication enabled, your MongoDB instance is not secure.
   
 ---
-title: Install Clients
+title: A Client Installed
 ref: access-mongos
 level: 4
-stepnum: 2
+stepnum: 3
 content: |
   .. include:: /includes/drivers_install.rst
+---
+title: A Connection String to Connect to MongoDB
+ref: connection_string
+level: 4
+stepnum: 4
+content: |
+  .. include:: /includes/drivers_connect_string.rst
 ---
 title: Connect
 ref: connect
 level: 4
-stepnum: 2
+stepnum: 5
 content: |
   .. include:: /includes/drivers_connect.rst

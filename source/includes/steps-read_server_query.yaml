@@ -1,0 +1,57 @@
+title: Load More Data Into MongoDB
+ref: process-mongodb
+level: 4
+stepnum: 1
+content: |
+  Before you can write queries to extract data in a meaningful way, you'll need
+  to add more data to your database. You can do that by running the :insertMany():
+  command.
+  
+  .. include:: /includes/driver-example-query-6.rst
+
+---
+title: Retrieve Specific Documents in a Collection
+ref: query-one
+level: 4
+stepnum: 2
+content: |
+  
+  Now that you have more documents in your collection, you can retrieve specific
+  documents.
+  
+  To specify criteria to narrow the search results, you need to pass a JSON document
+  to the find() method that contains the criteria you are searching for.
+  
+  The following examples illustrate using a status of "D" as criteria
+  for narrowing a find on a collection.
+  
+  .. include:: /includes/driver-example-query-9.rst
+
+
+---
+title: Iterate Over The Results
+ref: iterate-all
+level: 4
+stepnum: 3
+content: |
+  .. include:: /includes/iterate_all.rst
+
+---
+title: Check Your Results
+ref: check-query-one
+level: 4
+stepnum: 4
+content: |
+  Your results should look something like
+  .. code-block:: javascript
+  
+     { "_id" : ObjectId("5a9854915c8eb0d368732649"), 
+       "item" : "canvas", 
+       "qty" : 100, 
+       "tags" : [ "cotton" ], 
+       "size" : { 
+                   "h" : 28, 
+                   "w" : 35.5, 
+                   "uom" : "cm"      
+                } 
+     }

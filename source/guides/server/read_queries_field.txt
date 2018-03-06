@@ -1,13 +1,11 @@
 .. guide::
-   title: Create: Insert Data Into MongoDB
+   title: Read: Retrieving Data from MongoDB With Queries By Fields
    author: assorted
    type: Getting Started
    level: beginner
    product_version: 3.6
-     .. uriwriter:: hi
    result_description:
-     
-     You will insert data into a collection in MongoDB. 
+      You will retrieve data from MongoDB using fields as criteria.
    time: 15
    prerequisites:
      .. include:: /includes/steps/prereqs_crud.rst
@@ -15,13 +13,15 @@
      .. include:: /includes/steps/check_for_crud.rst
    considerations: NA
    procedure:
-     .. include:: /includes/steps/insert_server.rst
+     .. include:: /includes/steps/read_server_query_fields.rst
    summary:
-     If you have successfully completed this guide, you have created your first mongoDB data. 
-     Now in the next guide, you will retrieve the information you just saved.
+     If you have successfully completed this guide, you have retrieved data from MongoDB
+     using fields..
+     
+     Now in the next guide, you will learn how to update data in MongoDO.
    whats_next:
-     `Read Data From MongoDB
+     `Update: Modifying Data in MongoDB
      <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
    seealso:
-     stuff
+     hi
      

@@ -1,0 +1,45 @@
+title: Bind to the ``Test`` Database
+ref: bind_db
+level: 4
+stepnum: 1
+content: |
+  The first step is to bind to the database you wish
+  to query. In this case you will be using
+  ``test``.
+  
+  .. include:: /includes/bind_db.rst   
+---
+title: Retrieve All Documents in a Collection
+ref: find-all
+level: 4
+stepnum: 2
+content: |
+  .. include:: /includes/find_all.rst
+
+---
+title: Iterate Over The Results
+ref: iterate-all
+level: 4
+stepnum: 3
+content: |
+  .. include:: /includes/iterate_all.rst
+
+---
+title: Check Your Results
+ref: check-find-all
+level: 4
+stepnum: 4
+content: |
+  Your results should look something like
+    .. code-block:: javascript
+  
+       { "_id" : ObjectId("5a9854915c8eb0d368732649"), 
+         "item" : "canvas", 
+         "qty" : 100, 
+         "tags" : [ "cotton" ], 
+         "size" : { 
+                     "h" : 28, 
+                     "w" : 35.5, 
+                     "uom" : "cm" 
+                  } 
+       }

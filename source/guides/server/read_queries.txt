@@ -1,0 +1,28 @@
+.. guide::
+   title: Read: Retrieving Data from MongoDB With Queries
+   author: assorted
+   type: Getting Started
+   level: beginner
+   product_version: 3.6
+   result_description:
+      You will retrieve data from MongoDB using criteria as expressed in queries. In the first read guide, you retrieved all of the documents of a given collection.
+      In this guide, you will provide selection criteria to extract specific records from the database.
+   time: 15
+   prerequisites:
+     .. include:: /includes/steps/prereqs_crud.rst
+   check_your_environment:
+     .. include:: /includes/steps/check_for_crud.rst
+   considerations: NA
+   procedure:
+     .. include:: /includes/steps/read_server_query.rst
+   summary:
+     If you have successfully completed this guide, you have retrieved data from MongoDB
+     using specific criteria as expressed in MongoDB's query syntax.
+     
+     Now in the next guide, you will learn how to update data in MongoDO.
+   whats_next:
+     `Update: Modifying Data in MongoDB
+     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+   seealso:
+     hi
+     
