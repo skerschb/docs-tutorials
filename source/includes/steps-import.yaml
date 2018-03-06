@@ -1,33 +1,50 @@
-title: Bind to the ``Test`` Database
+title: Get Your Data
 ref: bind_db
 level: 4
 stepnum: 1
 content: |
-  Bind to the database you wish
-  to add your data to. In this case we will be using
-  ``test``.
+  You will be using a ``Product`` inventory database for the Getting Started guides. Download
+  the dataset from `here <https://docs.mongodb.com/guides/server/inventory.out>`__
   
-  .. include:: /includes/bind_db.rst
-
 ---      
-title: Insert a Single Document
+title: Import Data Into A Collection
 ref: access-mongos
 level: 4
 stepnum: 2
 content: |
-  If you've got everything you need as defined above,
-  you are ready to create your first data in MongoDB.
+  Use the ``mongoimport`` command to insert documents into the
+  ``inventory`` collection in the ``test`` database. If the
+  collection already exists, the ``--drop`` parameter will drop
+  the collection first. Please note the inventory.out file may not 
+  live in the directory quoted here. Make sure you find out where this file
+  is on your local machine.
   
-  MongoDB uses JSON documents to populate the database,
-  which are stored internally as BSON, a binary form of JSON. JSON stands
-  for JavaScript Object Notation, and it's a great way to
-  store rich data.
+  .. tabs::
+
+     tabs:
+       - id: windows
+         name: windows
+         content: |
+           .. class:: copyable-code
+           .. code-block:: javascript
+ 
+         
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --passwprd <password> --drop --file ~\downloads\inventory.out
   
-  The data is stored in a kind of table called
-  a collection. Like SQL tables, you can have many collections
-  in a database.
+       - id: unix
+         name: unix (standalone)
+         content: |
+           .. class:: copyable-code
+           .. code-block:: javascript
   
-  .. include:: /includes/insert_one.rst
-  .. include:: /includes/driver-example-insert-1.rst
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --passwprd <password> --drop --file ~/Downloads/inventory.out
+          
+       - id: atlas
+         name: atlas (cloud)
+         content: |
+           .. class:: copyable-code
+           .. code-block:: javascript
+  
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --passwprd <password> --drop --file ~/downloads/inventory.out
           
           

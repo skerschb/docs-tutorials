@@ -1,0 +1,16 @@
+title: Access to a MongoDB Server
+ref: process-mongodb
+level: 4
+stepnum: 1
+content: |
+  Link here to Install/Setup Guide (Windows, Linux, Atlas) -- we need to fix the issue with mixed tab content
+  before we populate this.
+---
+title: Authentication Enabled
+ref: auth
+level: 4
+stepnum: 2
+content: |
+  For standalone instances of MongoDB, make sure you `Enable authentication
+  <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__.
+  Without authentication enabled, your MongoDB instance is not secure.

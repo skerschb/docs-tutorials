@@ -4,15 +4,12 @@
    type: Getting Started
    level: beginner
    product_version: 3.6
-     .. uriwriter:: hi
    result_description:
-     
      You can bulk import data into MongoDB using the ``mongoimport`` command distributed with the server.
      This guide will show you how.
-      
    time: 15
    prerequisites:
-     .. include:: /includes/steps/prereqs_crud.rst
+     .. include:: /includes/steps/prereqs_mtools.rst
    check_your_environment:
      .. include:: /includes/steps/check_for_crud.rst
    considerations: NA
