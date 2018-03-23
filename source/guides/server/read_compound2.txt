@@ -1,0 +1,27 @@
+.. guide::
+   title: Read: Compound Queries in MongoDB Part II
+   author: assorted
+   type: Getting Started
+   level: beginner
+   product_version: 3.6
+   result_description:
+      You will retrieve data from MongoDB using AND and OR logic together to form compound queries.
+   time: 15
+   prerequisites:
+     .. include:: /includes/steps/prereqs_crud.rst
+   check_your_environment:
+     .. include:: /includes/steps/check_for_crud.rst
+   considerations: NA
+   procedure:
+     .. include:: /includes/steps/read_compound2.rst
+   summary:
+     If you have successfully completed this guide, you have retrieved data from MongoDB
+     using compound queries with implied AND structure and the $or operator.
+     
+     In the next guide, you will learn how to update documents in MongoDB.
+   whats_next:
+     `Updating Documents in MongoDB
+     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+   seealso:
+      
+     

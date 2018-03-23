@@ -1,0 +1,124 @@
+title: Create or Login To An Atlas User Account
+ref: process-mongodb
+level: 4
+stepnum: 1
+content: |
+  Atlas is MongoDB's cloud-based, database-as-a-service solution.
+  In order to use MongoDB in the cloud, you need to create an Atlas user account.
+  
+  Go to `cloud.mongodb.com
+  <https://cloud.mongodb.com/user#/atlas/login>`_ to create or login to
+  your user account.
+  
+  If you are creating your user account, as part of the process Atlas automatically creates 
+  a default :doc:`organization and project
+  </organizations-projects>` for you to deploy your first cluster. You
+  can add additional :doc:`organizations </tutorial/manage-organizations>` and
+  :doc:`projects </tutorial/manage-projects>` later.
+  
+  Once you log in, the Atlas UI automatically opens the cluster creation dialog.
+  
+       
+---
+title: Select The Build New Cluster Button
+ref: cluster-new
+level: 4
+stepnum: 2
+content: |  
+  Once you are logged in, you will see a ``Clusters`` management panel.
+  
+  Select the green ``Build A New Cluster`` button on the top right side
+  of the ``Clusters`` panel.
+  
+  .. figure:: /images/buildnew-cluster1.png
+     :scale: 30 %
+
+---
+title: Pick Your Cluster Tier
+ref: cluster-setup
+level: 4
+stepnum: 3
+content: |
+  
+  Now it's time to pick what kind of cluster tier you need for your application.
+  
+  .. list-table:: Cluster Tier Selection Criteria
+   :widths: 30 10 10 10 10 10 
+   :header-rows: 1
+
+   * - Requirement
+     - Free Tier (M0)
+     - M2 - M5
+     - M10 - M20
+     - M30 - M60
+     - M100 - M200
+   * - RAM
+     - shared
+     - shared
+     - dedicated 2-4GB
+     - dedicated 8-64GB
+     - dedicated 160-256GB
+   * - Disk Space
+     - 512 MB
+     - 2-5 GB
+     - 10-20 GB
+     - 40-320 GB
+     - 1000-1500 GB
+   * - Number of Connections
+     - 100 max
+     - 100 max
+     - 350-700 max
+     - 2000-8000 max
+     - 16000 max
+   * - Network Performance
+     - low
+     - low to moderate
+     - moderate
+     - moderate-high
+     - 10-25 gigabit
+  
+  If you wish to use the free tier or M0 tier (which is recommended for development only), 
+  make sure you have selected the ``FREE`` or ``MO`` instance size. Note you can only
+  create one free tier cluster per account.
+  
+  If you do not see ``M0`` as an option, ensure that the ``Cloud Provider
+  and Region`` dropdowns have ``Amazon Web Services`` and either ``N. Virginia
+  (us-east-1)`` or ``Frankfurt (eu-central-1)`` selected.
+  
+  Selected anything other than the free tier will require you to enter in payment information
+  for your cluster.
+  
+  .. note::
+     Free tier clusters are MongoDB 3.4 instances. If you would like to use MongoDB 3.6
+     you will need to use tier M2 or above.
+  
+---
+title: Select Deploy
+ref: select-deploy
+level: 4
+stepnum: 3
+content: |
+  Need image for this.
+  
+---
+title: Wait For Your Cluster Instance to Spin Up
+ref: freetier-setup
+level: 5
+stepnum: 4
+content: |
+  It takes a few minutes to build and deploy a new cluster. While you are waiting, check out
+  the `MongoDB Create Reade Update and Delete Getting Started Guides cloud.mongodb.com
+  <https://cloud.mongodb.com/user#/atlas/login>`_
+  
+---
+title: Create an administrative Username and Password
+ref: admin-setup
+level: 5
+stepnum: 5
+content: |
+  Atlas prompts you to create an administrative MongoDB user as a part of deploying the first Atlas cluster in the project. This user has administrative access to any MongoDB cluster you deploy in the Atlas project.
+
+  Fill in the ``username`` and ``password`` fields. The password should be random, long, and complex to ensure system security and to impede malicious access.
+  
+  
+  

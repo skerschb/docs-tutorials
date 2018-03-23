@@ -1,0 +1,57 @@
+title: Write an Implied AND Query With an $or Clause
+ref: process-mongodb
+level: 4
+stepnum: 1
+content: |
+  In the following example, the compound query document selects all
+  documents in the collection where the ``status`` equals ``"A"``
+  **and** *either* ``qty`` is less than (:query:`$lt`) ``30`` *or*
+  ``item`` starts with the character ``p``:
+
+  .. include:: /includes/driver-example-query-13.rst
+
+  .. note::
+
+     MongoDB supports regular expressions :query:`$regex` queries to
+     perform string pattern matches.
+
+---
+title: Iterate Over The Results
+ref: iterate-all
+level: 4
+stepnum: 2
+content: |
+  .. include:: /includes/iterate_all.rst
+
+---
+title: Check Your Results
+ref: check-query-one
+level: 4
+stepnum: 3
+content: |
+  Your results should look something like
+    .. code-block:: javascript
+       
+       {
+          "_id" : ObjectId("5ab3c27c9b8f98766c10e421"),
+          "item" : "Moreganic",
+          "lastModified" : ISODate("2015-01-28T16:43:11.518Z"),
+          "qty" : 12,
+          "rating" : [
+              {
+                  "letter" : "A",
+                  "score" : 1
+              }
+          ],
+          "size" : {
+              "h" : 392,
+              "l" : 469,
+              "uom" : "cm",
+              "w" : 237
+          },
+          "status" : "A",
+          "tags" : [
+              "produce",
+              "cobweb"
+          ]
+       }

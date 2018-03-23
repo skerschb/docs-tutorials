@@ -3,53 +3,52 @@
    tabs:
      - id: shell
        content: |
-         Make sure you have `installed the shell
-         <http://mongodb.github.io/node-mongodb-native/3.0/installation-guide/installation-guide/>`__
-          
+         MongoDB shell is packaged with the MongoDB Server distribution, and is also
+         available for users of Atlas as a client-only downlaad.
          
      - id: compass
        content: |
-         Make sure you have `installed Compass
+         Here's how you `install Compass
          <https://docs.mongodb.com/compass/current/install/>`__
 
      - id: python
        content: |
-         Make sure you have `installed pymongo
+         Here's how you `install pymongo
          <http://api.mongodb.com/python/current/installation.html>`__
          
      - id: motor
        content: |
-         Make sure you have `installed the motor library
+         Here's how you `install the motor library
          <https://motor.readthedocs.io/en/stable/installation.html>`__
 
      - id: java-sync
        content: |
-         Make sure you have `installed the java driver
+         Here's how you `install the java driver
          <http://mongodb.github.io/mongo-java-driver/3.6/driver/getting-started/installation/>`__
    
      - id: nodejs
        content: |
-          Make sure you have `installed the node.js driver
+          Here's how you `install the the node.js driver
           <http://mongodb.github.io/node-mongodb-native/3.0/installation-guide/installation-guide/>`__
     
      - id: php
        content: |
-         Make sure you have `installed the PHP library
+         Here's how you `install the PHP library
          <https://docs.mongodb.com/php-library/current/tutorial/install-php-library/>`__
   
      - id: perl
        content: |
-         Make sure you have `installed the perl driver
+         Here's how you `install the perl driver
          <https://github.com/mongodb/mongo-perl-driver/blob/master/INSTALL.md>`__
 
      - id: ruby
        content: |
-         Make sure you have `installed the Ruby driver
+         Here's how you `install the Ruby driver
          <https://docs.mongodb.com/ruby-driver/master/installation/>`__
   
      - id: scala
        content: |
-         Make sure you have `installed the Scala driver
+         Here's how you `install the Scala driver
          <http://mongodb.github.io/mongo-scala-driver/2.1/getting-started/installation-guide/>`__
   
      - id: csharp

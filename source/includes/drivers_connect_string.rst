@@ -13,11 +13,8 @@ are working with below to determine your connection string, and use this in the 
      - id: MongoDB
        name: MongoDB (standalone)
        content: |
-         To connect to a MongoDB instance that is standalone, locally or on another server, use the following
-         connection string format
-       
-         mongodb://<user>:<password>@<servername>:<port>/<database>?authSource=<auth database name>
-         
+         To connect to a MongoDB instance that is standalone, locally or on another server.
+          
          for example, for a user named ``testuser`` with a password of ``password`` and a servername of ``localhost``,
          a port of ``27017``, a database called ``test`` which has authorization stored in the ``admin`` database,
          the connection string would be
@@ -25,7 +22,7 @@ are working with below to determine your connection string, and use this in the 
          .. cssclass:: copyable-code
          .. code-block:: sh
          
-            mongodb://testuser:password@localhost:27017/test?authSource=admin
+            <URISTRING>
       
            
      - id: Atlas

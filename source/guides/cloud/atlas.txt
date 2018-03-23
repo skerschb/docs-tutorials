@@ -1,0 +1,25 @@
+.. guide::
+   title: MongoDB In the Cloud with Atlas
+   author: assorted
+   type: Getting Started
+   level: beginner
+   product_version: 3.6
+   result_description:
+     In this guide, you will create a free account on Atlas, MongoDB's
+     managed database solution, and a MongoDB server cluster according to
+     your requirements.
+   time: 15
+   prerequisites:
+     .. include:: /includes/steps/cloud_pr.rst
+   check_your_environment:
+   considerations: NA
+   procedure:
+     .. include:: /includes/steps/cloud.rst
+   summary:
+     If you have successfully completed this guide , you have created your first Atlas account
+     and cluster. Now it's time to put data into your Atlas MongoDB cluster.
+   whats_next:
+     `Insert Data Into MongoDB
+     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+   seealso:
+     blah blah

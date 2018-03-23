@@ -1,0 +1,30 @@
+For example, the following query selects all documents where the field
+``size`` equals the document ``{ h: 14, w: 21, uom: "cm" }``:
+
+.. include:: /includes/driver-example-query-15.rst
+
+Equality matches on the whole embedded document require an *exact*
+match of the specified ``<value>`` document, including the field order.
+For example, the following query does not match any documents in the
+``inventory`` collection:
+
+.. include:: /includes/driver-example-query-16.rst
+
+Query on Nested Field
+---------------------
+
+To specify a query condition on fields in an embedded/nested document,
+use :term:`dot notation` (``"field.nestedField"``).
+
+.. note::
+
+  When querying using dot notation, the field and nested field must be
+  inside quotation marks.
+
+Specify Equality Match on a Nested Field
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following example selects all documents where the field ``uom``
+nested in the ``size`` field equals ``"in"``:
+
+.. include:: /includes/driver-example-query-17.rst

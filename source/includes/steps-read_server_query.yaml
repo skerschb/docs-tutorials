@@ -4,8 +4,9 @@ level: 4
 stepnum: 1
 content: |
   Before you can write queries to extract data in a meaningful way, you'll need
-  to add more data to your database. You can do that by running the :insertMany():
-  command.
+  to add more data to your database. You can do that by running the ``insertMany()``
+  command, or by loading data into MongoDB using ``mongoimport`` (see the `Getting Started
+  <http://linkhere>`__ on this topic).
   
   .. include:: /includes/driver-example-query-6.rst
 
@@ -43,15 +44,15 @@ level: 4
 stepnum: 4
 content: |
   Your results should look something like
-  .. code-block:: javascript
-  
-     { "_id" : ObjectId("5a9854915c8eb0d368732649"), 
-       "item" : "canvas", 
-       "qty" : 100, 
-       "tags" : [ "cotton" ], 
-       "size" : { 
-                   "h" : 28, 
-                   "w" : 35.5, 
-                   "uom" : "cm"      
-                } 
-     }
+     .. code-block:: javascript
+      
+        { "_id" : ObjectId("5a9854915c8eb0d368732649"), 
+          "item" : "canvas", 
+          "qty" : 100, 
+          "tags" : [ "cotton" ], 
+          "size" : { 
+                      "h" : 28, 
+                      "w" : 35.5, 
+                      "uom" : "cm"      
+                   } 
+        }

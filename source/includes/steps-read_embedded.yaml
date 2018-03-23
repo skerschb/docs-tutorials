@@ -1,0 +1,77 @@
+title: Retrieve Specific Documents in a Collection by Embedded Document
+ref: query-one
+level: 4
+stepnum: 1
+content: |
+  
+  To specify criteria for data that is embedded within the JSON documents, you need to pass a JSON document
+  to the find() method that contains the criteria you are searching for.
+
+  If you wish to select documents that exactly match all of the fields in an embedded JSON object, you will
+  specify all of the fields in the document with the expected values in the exact order they would appear
+  in the collection.
+
+  For example, the folowing query selects all documents where the field ``size`` equals the document
+  ``{ h: 14, w: 21, uom: "cm"}``:
+  
+  .. include:: /includes/driver-example-query-15.rst
+
+
+---
+title: Iterate Over The Results
+ref: iterate-all
+level: 4
+stepnum: 2
+content: |
+  .. include:: /includes/iterate_all.rst
+
+---
+title: Check Your Results
+ref: check-query-one
+level: 4
+stepnum: 3
+content: |
+  Your results should look something like
+     .. code-block:: javascript
+  
+        {
+         "_id" : ObjectId("5ab2f6709b8f98766c1083ce"),
+         "name" : "Accuprint",
+         "qty" : 3306,
+         "rating" : [
+           {
+               "letter" : "A",
+               "score" : 6
+           },
+           {
+               "letter" : "B",
+               "score" : 5
+           },
+           {
+               "letter" : "C",
+               "score" : 4
+           },
+           {
+               "letter" : "D",
+               "score" : 3
+           },
+           {
+               "letter" : "A",
+               "score" : 2
+           },
+           {
+               "letter" : "B",
+               "score" : 1
+           }
+         ],
+         "size" : {
+            "h" : 14,
+            "w" : 21,
+            "uom" : "cm"
+         },
+         "status" : "C",
+         "tags" : [
+         "ad hoc",
+          "admit"
+         ]}
+    

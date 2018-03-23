@@ -19,10 +19,11 @@
      If you have successfully completed this guide, you have retrieved data from MongoDB
      using specific criteria as expressed in MongoDB's query syntax.
      
-     Now in the next guide, you will learn how to update data in MongoDO.
+     In the next guide, you will learn how to query for data in MongoDB using
+     embedded fields as criteria.
    whats_next:
-     `Update: Modifying Data in MongoDB
+     `Read: Retrieving Data from Embedded Fields In MongoDB With Queries
      <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
    seealso:
-     hi
+      
      

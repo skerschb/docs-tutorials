@@ -1,0 +1,89 @@
+title: Retrieve Specific Documents in a Collection With Dot Notation
+ref: query-one
+level: 4
+stepnum: 1
+content: |
+  
+  To specify criteria for data that is embedded within the JSON documents, you need to pass a JSON document
+  to the find() method that contains the criteria you are searching for.
+
+  If you wish to select documents that exactly match just one of the fields in an embedded JSON object, use 
+  :term:`dot notation` (``"field.nestedField"``).
+
+  When querying using dot notation, the field and nested field must be
+  inside quotation marks.
+  
+  The following example selects all documents where the field ``uom``
+  nested in the ``size`` field equals ``"in"``:
+
+  .. include:: /includes/driver-example-query-17.rst
+
+
+---
+title: Iterate Over The Results
+ref: iterate-all
+level: 4
+stepnum: 2
+content: |
+  .. include:: /includes/iterate_all.rst
+
+---
+title: Check Your Results
+ref: check-query-one
+level: 4
+stepnum: 4
+content: |
+  Your results should look something like
+    .. code-block:: javascript
+  
+       {
+        "_id" : ObjectId("5ab3c27c9b8f98766c10dd24"),
+        "item" : "33Ease",
+        "lastModified" : ISODate("2015-10-16T08:15:42.264Z"),
+        "qty" : 3794,
+        "rating" : [
+           {
+              "letter" : "A",
+              "score" : 8
+           },
+           {
+              "letter" : "B",
+              "score" : 7
+           },
+           {
+              "letter" : "C",
+              "score" : 6
+           },
+           {
+              "letter" : "D",
+              "score" : 5
+           },
+           {
+              "letter" : "A",
+              "score" : 4
+           },
+           {
+              "letter" : "B",
+              "score" : 3
+           },
+           {
+              "letter" : "C",
+              "score" : 2
+           },
+           {
+              "letter" : "D",
+              "score" : 1
+           }
+       ],
+        "size" : {
+        "h" : 442,
+        "l" : 300,
+        "uom" : "in",
+        "w" : 488
+        },
+        "status" : "C",
+        "tags" : [
+          "saw",
+          "happy"
+        ]
+       }

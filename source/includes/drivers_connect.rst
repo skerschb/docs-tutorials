@@ -4,11 +4,16 @@
      - id: shell
        content: |
          If you have properly installed mongo, you should be able to access your mongod
-         instance locally or on the cloud by running:
-           .. cssclass:: copyable-code
-           .. code-block:: sh
+         instance locally or on the cloud by running ``mongo``.
+         
+         Use this connection string widget to construct the connection string required.
+         
+         .. uriwriter::
+ 
+         .. cssclass:: copyable-code urilistener
+         .. code-block:: sh
 
-              mongo <connection_string>
+            mongo <URISTRING>
               
          Alternatively you can authenticate once you run the shell command
            
@@ -33,14 +38,12 @@
 
      - id: python
        content: |
-         Connect to the MongoDB instance and authenticate.
-         
-         .. cssclass:: copyable-code
-         .. code-block:: sh
-
-            from pymongo import MongoClient
-            connection_string = "<connection-string>"
-	        client = MongoClient(connection_string)
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/connect.py
+            :language: python
+            :dedent: 0
+            :start-after: Start Connect
+            :end-before: End Connect     
          
      - id: motor
        content: |
@@ -50,45 +53,23 @@
 
      - id: java-sync
        content: |
-       
-         .. cssclass:: copyable-code
-         .. code-block:: java
-         
-            final String uriString = "<connection-string>";
-            	MongoClientURI uri = new MongoClientURI(uriString);
-		    //note that java connections are not initialized unless an operation such as a find() or count() is
-		    //executed
-		    MongoClient mongoClient = new MongoClient(uri);
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/JavaConnectDocumentationSamples.java
+            :language: java
+            :dedent: 4
+            :start-after: Start Connect
+            :end-before: End Connect
 		    
 	
    
      - id: nodejs
        content: |
-         Aha! The node connection string is a little different due to the encoding required on the uri.
-         See the code below and adjust accordingly to your parameters.
-         
-         .. cssclass:: copyable-code
-         .. code-block:: javascript
-            
-            const MongoClient = require('mongodb').MongoClient;
-            const f = require('util').format;
-            const assert = require('assert');
-
-            const user = encodeURIComponent('testuser');
-            const password = encodeURIComponent('password');
-
-            // Connection URL
-            const url = f('mongodb://%s:%s@localhost:27017/test?authSource=admin', user, password);
-
-            // Use connect method to connect to the Server
-            MongoClient.connect(url, function(err, client) {
-               console.log(url);
-               assert.equal(null, err);
-
-               console.log("Connected correctly to server");
-
-               client.close();
-            });
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/connect.js
+            :language: javascript
+            :dedent: 0
+            :start-after: Start Connect
+            :end-before: End Connect     
          
      - id: php
        content: |

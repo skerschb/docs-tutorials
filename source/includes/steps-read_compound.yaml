@@ -1,0 +1,141 @@
+title: Write an Implied AND Query
+ref: process-mongodb
+level: 4
+stepnum: 1
+content: |
+  There are two ways to write compound queries with AND as the logical operator in MongoDB. The first,
+  and most popular way to do this is to simply list multiple fields in your JSON find document. The second
+  is to use the ``$and`` operator. While both are valid, the implied method is more common, and so
+  that's what you will use for this example.
+  
+  The following example retrieves all documents in the ``inventory``
+  collection where the ``status`` equals ``"A"`` **and** ``qty`` is less
+  than (:query:`$lt`) ``30``:
+
+  .. include:: /includes/driver-example-query-11.rst
+
+---
+title: Iterate Over The Results
+ref: iterate-all
+level: 4
+stepnum: 2
+content: |
+  .. include:: /includes/iterate_all.rst
+
+---
+title: Check Your Results
+ref: check-query-one
+level: 4
+stepnum: 3
+content: |
+  Your results should look something like
+    .. code-block:: javascript
+       
+       {
+          "_id" : ObjectId("5ab3c27c9b8f98766c10e421"),
+          "item" : "Moreganic",
+          "lastModified" : ISODate("2015-01-28T16:43:11.518Z"),
+          "qty" : 12,
+          "rating" : [
+              {
+                  "letter" : "A",
+                  "score" : 1
+              }
+          ],
+          "size" : {
+              "h" : 392,
+              "l" : 469,
+              "uom" : "cm",
+              "w" : 237
+          },
+          "status" : "A",
+          "tags" : [
+              "produce",
+              "cobweb"
+          ]
+       }
+
+
+
+---
+title: Write an $or Query
+ref: query-or
+level: 4
+stepnum: 4
+content: |
+  
+  Using the :query:`$or` operator, you can specify a compound query
+  that joins each clause with a logical ``OR`` conjunction so that the
+  query selects the documents in the collection that match at least one
+  condition.
+  
+  The following example retrieves all documents in the collection where
+  the ``status`` equals ``"A"`` **or** ``qty`` is less than
+  (:query:`$lt`) ``30``:
+
+  .. include:: /includes/driver-example-query-12.rst
+
+---
+title: Iterate Over The Results
+ref: iterate-all-or
+level: 4
+stepnum: 5
+content: |
+  .. include:: /includes/iterate_all.rst
+
+---
+title: Check Your Results
+ref: check-query-one-or
+level: 4
+stepnum: 6
+content: |
+  Your results should look something like
+     .. code-block:: javascript
+      
+        {
+          "_id" : ObjectId("5ab3c27c9b8f98766c10dd25"),
+          "item" : "3Deem Yourself",
+          "lastModified" : ISODate("2015-10-04T02:51:41.607Z"),
+          "qty" : 1176,
+          "rating" : [
+              {
+                  "letter" : "A",
+                  "score" : 7
+              },
+              {
+                  "letter" : "B",
+                  "score" : 6
+              },
+              {
+                  "letter" : "C",
+                  "score" : 5
+              },
+              {
+                  "letter" : "D",
+                  "score" : 4
+              },
+              {
+                  "letter" : "A",
+                  "score" : 3
+              },
+              {
+                  "letter" : "B",
+                  "score" : 2
+              },
+              {
+                  "letter" : "C",
+                  "score" : 1
+              }
+          ],
+          "size" : {
+              "h" : 396,
+              "l" : 368,
+              "uom" : "cm",
+              "w" : 117
+          },
+          "status" : "A",
+          "tags" : [
+              "splendid",
+              "string"
+          ]
+      }

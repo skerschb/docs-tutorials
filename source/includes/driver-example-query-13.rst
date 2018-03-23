@@ -6,30 +6,23 @@
          .. class:: copyable-code
          .. code-block:: javascript
 
-            db.inventory.insertMany([
-               { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
-               { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
-               { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
-               { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
-               { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
-            ]);
-
-         .. only:: website
+            db.inventory.find( {
+                 status: "A",
+                 $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ]
+            } )
 
      - id: compass
        content: |
+         Copy the following filter into the Compass query bar and click
+         :guilabel:`Find`:
+
+         .. class:: copyable-code
          .. code-block:: javascript
 
-            [
-               { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
-               { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
-               { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
-               { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
-               { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
-            ]
+            { status: "A", $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ] }
 
-         For instructions on inserting documents in MongoDB Compass, see
-         :doc:`Insert Documents </tutorial/insert-documents/>`.
+         .. figure:: /images/compass-find-filter-and-or.png
+
 
      - id: python
        content: |
@@ -37,8 +30,8 @@
          .. literalinclude:: /driver-examples/test_examples.py
             :language: python
             :dedent: 8
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: motor
        content: |
@@ -46,8 +39,8 @@
          .. literalinclude:: /driver-examples/test_examples_motor.py
             :language: python
             :dedent: 8
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: java-sync
        content: |
@@ -55,8 +48,8 @@
          .. literalinclude:: /driver-examples/DocumentationSamples.java
             :language: java
             :dedent: 8
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: java-async
        content: |
@@ -64,8 +57,8 @@
          .. literalinclude:: /driver-examples/AsyncDocumentationSamples.java
             :language: java
             :dedent: 8
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: nodejs
        content: |
@@ -73,8 +66,8 @@
          .. literalinclude:: /driver-examples/examples_tests.js
             :language: javascript
             :dedent: 8
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: php
        content: |
@@ -82,8 +75,8 @@
          .. literalinclude:: /driver-examples/DocumentationExamplesTest.php
             :language: php
             :dedent: 8
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: perl
        content: |
@@ -91,17 +84,17 @@
          .. literalinclude:: /driver-examples/driver-examples.t
             :language: perl
             :dedent: 4
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: ruby
        content: |
          .. class:: copyable-code
          .. literalinclude:: /driver-examples/shell_examples_spec.rb
             :language: ruby
-            :dedent: 6
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :dedent: 8
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: scala
        content: |
@@ -109,8 +102,8 @@
          .. literalinclude:: /driver-examples/DocumentationExampleSpec.scala
             :language: scala
             :dedent: 4
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13
 
      - id: csharp
        content: |
@@ -118,5 +111,5 @@
          .. literalinclude:: /driver-examples/DocumentationExamples.cs
             :language: c#
             :dedent: 12
-            :start-after: Start Example 6
-            :end-before: End Example 6
+            :start-after: Start Example 13
+            :end-before: End Example 13

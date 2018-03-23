@@ -1,0 +1,26 @@
+.. guide::
+   title: Read: Retrieving Data from Embedded Fields In MongoDB With Comparison Operators
+   author: assorted
+   type: Getting Started
+   level: beginner
+   product_version: 3.6
+   result_description:
+      In the previous read guide, you retrieved data using embedded fields and ``dot notation``. In this guide, you will retrieve
+      data with MongoDB's comparison operators.
+   time: 15
+   prerequisites:
+     .. include:: /includes/steps/prereqs_crud.rst
+   check_your_environment:
+     .. include:: /includes/steps/check_for_crud.rst
+   considerations: NA
+   procedure:
+     .. include:: /includes/steps/read_operators.rst
+   summary:
+     If you have successfully completed this guide, you have retrieved data from MongoDB
+     using MongoDB query operators.
+   whats_next:
+     `Read: Query Using Specific Embedded Fields In MongoDB
+     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+   seealso:
+     `Learn more about Query Operators
+     <https://docs.mongodb.com/manual/reference/operator/query>`__

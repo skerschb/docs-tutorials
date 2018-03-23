@@ -1,0 +1,20 @@
+title: Install The Client You Wish to Use
+ref: access-mongos
+level: 4
+stepnum: 1
+content: |
+  .. include:: /includes/drivers_install.rst
+---
+title: A Connection String to Connect to MongoDB
+ref: connection_string
+level: 4
+stepnum: 2
+content: |
+  .. include:: /includes/drivers_connect_string.rst
+---
+title: Connect
+ref: connect
+level: 4
+stepnum: 3
+content: |
+  .. include:: /includes/drivers_connect.rst

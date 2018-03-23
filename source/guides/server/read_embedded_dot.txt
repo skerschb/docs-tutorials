@@ -1,0 +1,28 @@
+.. guide::
+   title: Read: Retrieving Data from Embedded Fields In MongoDB With Dot Notation in Queries
+   author: assorted
+   type: Getting Started
+   level: beginner
+   product_version: 3.6
+   result_description:
+      In the previous read guide, you retrieved all data that matched an embedded JSON object. In this guide, you will retrieve
+      data with field criteria that is embedded within the JSON document using ``dot notation``.
+   time: 15
+   prerequisites:
+     .. include:: /includes/steps/prereqs_crud.rst
+   check_your_environment:
+     .. include:: /includes/steps/check_for_crud.rst
+   considerations: NA
+   procedure:
+     .. include:: /includes/steps/read_embedded_dot.rst
+   summary:
+     If you have successfully completed this guide, you have retrieved data from MongoDB
+     using dot notation.
+     
+     In the next guide, you will retrieve data from MongoDB using MongoDB operators.
+   whats_next:
+     `Read: Retrieving Data from Embedded Fields In MongoDB With Comparison Operators
+     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+   seealso:
+     hi
+     

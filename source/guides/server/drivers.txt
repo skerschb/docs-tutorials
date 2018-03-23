@@ -1,0 +1,27 @@
+.. guide::
+   title: Install MongoDB Client and Client Drivers
+   author: assorted
+   type: Getting Started
+   level: beginner
+   product_version: 3.6
+   result_description:
+     MongoDB supports several languages, and also bundles its own Mongo Shell. The shell and the drivers
+     allow you to access MongoDB interactively and programmatically. This guide will step you through installation
+     of the MongoDB Shell and/or client drivers. All you need to do is select what you'd like to use to access your MongoDB data!
+   time: 15
+   prerequisites:
+     .. include:: /includes/steps/prereqs_drivers_install.rst
+   check_your_environment:
+     .. include:: /includes/steps/check_for_drivers_install.rst
+   considerations: NA
+   procedure:
+     .. include:: /includes/steps/drivers_install_gs.rst
+   summary:
+     If you have successfully completed this guide, you have installed a client
+     to access MongoDB. In the next group of guides, you'll learn how to create,
+     read, update and delete data in MongoDB. 
+   whats_next:
+     `Getting Started: Working with Data in MongoDB
+     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+   seealso:
+     stuff
