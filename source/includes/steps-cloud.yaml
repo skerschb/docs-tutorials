@@ -27,8 +27,12 @@ stepnum: 2
 content: |  
   Once you are logged in, you will see a ``Clusters`` management panel.
   
-  Select the green ``Build A New Cluster`` button on the top right side
+  Select the green ``Build A New Cluster`` button at the center
   of the ``Clusters`` panel.
+  
+  .. note::
+     If you have already built a cluster, you will see this button
+     at the right hand side of the panel.
   
   .. figure:: /images/buildnew-cluster1.png
      :scale: 30 %
@@ -85,7 +89,7 @@ content: |
   and Region`` dropdowns have ``Amazon Web Services`` and either ``N. Virginia
   (us-east-1)`` or ``Frankfurt (eu-central-1)`` selected.
   
-  Selected anything other than the free tier will require you to enter in payment information
+  Selecting anything other than the free tier will require you to enter in payment information
   for your cluster.
   
   .. note::
