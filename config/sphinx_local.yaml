@@ -3,7 +3,7 @@ master_doc: 'index'
 paths:
   static: ['source/.static']
 theme:
-  name: 'bi-connector'
+  name: 'guides'
   sitename: 'MongoDB Connector for BI'
   jira: 'DOCS'
   google_analytics: 'UA-7301842-8'
@@ -11,5 +11,5 @@ theme:
     - /
 sidebars:
   '**':
-    - 'pagenav.html'
+    - 'localtoc.html'
 ...
