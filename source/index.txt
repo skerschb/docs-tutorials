@@ -1,14 +1,29 @@
 .. _guides:
 
-==============
-MongoDB Guides
-==============
+======
+Guides
+======
 
 .. default-domain:: mongodb
 
-.. contents:: On this page
-   :local:
-   :backlinks: none
-   :depth: 1
-   :class: singlecol
+.. cssclass:: guides-intro
 
+   Explore workflows for teams of all types with examples to get you
+   started. Below you’ll find resources and onboarding material to
+   implement MongoDB.
+
+.. guide-index::
+
+   CRUD Guides
+     guides/server/insert
+     guides/server/read
+     guides/server/read_compound
+     guides/server/read_compound2
+     guides/server/read_embedded
+     guides/server/read_embedded_dot
+     guides/server/read_operators
+     guides/server/read_queries
+   guides/server/introduction
+   guides/server/import
+   guides/server/drivers
+   guides/cloud/atlas

@@ -104,8 +104,7 @@ html_last_updated_fmt = '%b %d, %Y'
 
 html_copy_source = False
 html_domain_indices = True
-html_use_index = True
-html_split_index = False
+html_use_index = False
 html_show_sourcelink = False
 html_show_sphinx = True
 html_show_copyright = True
@@ -126,7 +125,7 @@ html_theme_options = {
                                            'mongodb-bi-connector', 'epub'),
     'nav_excluded': sconf.theme.nav_excluded,
     'version_selector': get_versions(conf),
-    'is_upcoming': False,
+    'nosidebar': True
 }
 
 html_sidebars = sconf.sidebars

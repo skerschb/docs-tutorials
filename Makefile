@@ -8,7 +8,6 @@ PROJECT=docs-tutorials
 
 DRIVERS_PATH=source/driver-examples
 
-
 # Parse our published-branches configuration file to get the name of
 # the current "stable" branch. This is weird and dumb, yes.
 STABLE_BRANCH=`grep 'manual' build/docs-tools/data/${PROJECT}-published-branches.yaml | cut -d ':' -f 2 | grep -Eo '[0-9a-z.]+'`
@@ -24,7 +23,7 @@ help: ## Show this help message
 html: examples ## Builds this branch's HTML under build/<branch>/html
 	giza make html
 
-publish: ## Builds this branch's publishable HTML and other artifacts under build/public
+publish: examples ## Builds this branch's publishable HTML and other artifacts under build/public
 	giza make publish
 	if [ ${GIT_BRANCH} = master ]; then mut-redirects config/redirects -o build/public/.htaccess; fi
 
@@ -46,7 +45,7 @@ deploy-search-index: ## Update the search index for this branch
 	else \
 		mut-index upload build/public/${GIT_BRANCH} -o bi-connector-${GIT_BRANCH}.json -u ${PRODUCTION_URL}/${PROJECT}/${GIT_BRANCH} -s; \
 	fi
-	
+
 examples:
 	mkdir -p ${DRIVERS_PATH}
 	curl -SfL https://raw.githubusercontent.com/mongodb/mongo-python-driver/master/test/test_examples.py -o ${DRIVERS_PATH}/test_examples.py
@@ -61,7 +60,7 @@ examples:
 	curl -SfL https://raw.githubusercontent.com/mongodb/mongo-csharp-driver/master/tests/MongoDB.Driver.Examples/DocumentationExamples.cs -o ${DRIVERS_PATH}/DocumentationExamples.cs
 	curl -SfL https://raw.githubusercontent.com/mongodb/node-mongodb-native/3.0.0/test/functional/operation_changestream_example_tests.js -o ${DRIVERS_PATH}/ChangeStreamNodeExamples.js
 	curl -SfL https://raw.githubusercontent.com/mongodb/mongo-csharp-driver/master/tests/MongoDB.Driver.Examples/ChangeStreamExamples.cs -o ${DRIVERS_PATH}/ChangeStreamExamples.cs
-	curl -SfL https://raw.githubusercontent.com/mongodb/mongo-c-driver/master/tests/test-mongoc-sample-commands.c -o ${DRIVERS_PATH}/test-mongoc-sample-commands.c 
+	curl -SfL https://raw.githubusercontent.com/mongodb/mongo-c-driver/master/tests/test-mongoc-sample-commands.c -o ${DRIVERS_PATH}/test-mongoc-sample-commands.c
 	curl -SfL https://raw.githubusercontent.com/mongodb/mongo-java-driver-reactivestreams/master/examples/documentation/src/DocumentationSamples.java -o ${DRIVERS_PATH}/AsyncDocumentationSamples.java
 	curl -SfL https://raw.githubusercontent.com/skerschb/docs-samples/java/src/main/java/guides/examples/crud/Connect.java -o ${DRIVERS_PATH}/JavaConnectDocumentationSamples.java
 	curl -SfL https://raw.githubusercontent.com/skerschb/docs-samples/python/src/connect.py -o ${DRIVERS_PATH}/connect.py
