@@ -6,10 +6,8 @@
          If you have properly installed mongo, you should be able to access your mongod
          instance locally or on the cloud by running ``mongo``.
          
-         Use this connection string widget to construct the connection string required.
+         Use this connection  widget to construct the connection string required.
          
-         .. uriwriter::
- 
          .. cssclass:: copyable-code urilistener
          .. code-block:: sh
 

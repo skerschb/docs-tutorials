@@ -16,8 +16,8 @@
    procedure:
      .. include:: /includes/steps/insert_server.rst
    summary:
-     If you have successfully completed this guide,you have created your first mongoDB data. 
-     Now in the next guide, you will retrieve the information you just saved.
+     If you have successfully completed this guide, you have created your first mongoDB data. 
+     Now in the next guide,you will retrieve the information you just saved.
    whats_next:
      `Read Data From MongoDB
      <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__

@@ -28,7 +28,8 @@ ref: connection_string
 level: 4
 stepnum: 4
 content: |
-  .. include:: /includes/drivers_connect_string.rst
+  .. uriwriter::
+ 
 ---
 title: Connect
 ref: connect
