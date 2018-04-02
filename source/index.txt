@@ -14,15 +14,16 @@ Guides
 
 .. guide-index::
 
-   CRUD Guides
+   CRUD Guides: Create
      guides/server/insert
+   CRUD Guides: Read
      guides/server/read
-     guides/server/read_compound
-     guides/server/read_compound2
+     guides/server/read_queries
      guides/server/read_embedded
      guides/server/read_embedded_dot
      guides/server/read_operators
-     guides/server/read_queries
+     guides/server/read_compound
+     guides/server/read_compound2
    guides/server/introduction
    guides/server/import
    guides/server/drivers
