@@ -1,5 +1,5 @@
 .. guide::
-   title: Read: Retrieving Data from Embedded Fields In MongoDB With Comparison Operators
+   title: Retrieving Data from Embedded Fields In MongoDB With Comparison Operators
    author: assorted
    type: Getting Started
    level: beginner

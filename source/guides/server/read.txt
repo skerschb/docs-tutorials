@@ -1,5 +1,5 @@
 .. guide::
-   title: Read: Retrieving Data from MongoDB
+   title: Retrieving Data from MongoDB
    author: assorted
    type: Getting Started
    level: beginner

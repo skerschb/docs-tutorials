@@ -1,5 +1,5 @@
 .. guide::
-   title: Read: Compound Queries in MongoDB Part II
+   title: Compound Queries in MongoDB Part II
    author: assorted
    type: Getting Started
    level: beginner

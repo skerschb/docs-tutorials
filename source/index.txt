@@ -8,9 +8,8 @@ Guides
 
 .. cssclass:: guides-intro
 
-   Explore workflows for teams of all types with examples to get you
-   started. Below you’ll find resources and onboarding material to
-   implement MongoDB.
+   Get Started with MongoDB or take a Deep Dive into
+   an advanced concept with these step-by-step guides.
 
 .. guide-index::
 

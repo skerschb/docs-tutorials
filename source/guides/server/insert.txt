@@ -1,7 +1,7 @@
 .. urimapper:: atlas%atlasstring;standalone%standalonestring
 .. guide::
    
-   title: Create: Insert Data Into MongoDB
+   title: Insert Data Into MongoDB
    author: assorted
    type: Getting Started
    level: beginner
