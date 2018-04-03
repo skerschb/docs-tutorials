@@ -3,10 +3,10 @@ ref: define_dp
 level: 4
 stepnum: 1
 content: |
-  Decide which fields you would like to capture, and how
-  they relate to each other. For our example we are using
+  Decide which fields you would like to have in your database
+  and how they relate to each other. For our example we are using
   an inventory database, which tracks items and their
-  quantities and properties.
+  quantities, sizes, tags, and ratings.
   
   Here is an example of an inventory database that gives us
   some details about inventory items we are tracking.
@@ -20,7 +20,7 @@ content: |
        - size
        - status
        - tags
-       - grades
+       - ratings
 
      * - journal
        - 25
@@ -83,8 +83,7 @@ content: |
      h: 14, w: 21, uom: "cm"
      
   And grades might be split into:
-  
-  .. class:: copyable-code
+
   .. code-block:: javascript
   
      letter: A, score: 9
@@ -92,12 +91,11 @@ content: |
   In addition, you might want to be able to handle multiple grades
   per item. So you might have the need to store a list of grades, like so:
   
-  .. class:: copyable-code
   .. code-block:: javascript
   
-    [ letter: A, score: 9
-      letter: B, score: 7
-      letter: D, score: 5 ]
+     letter: A, score: 9,
+     letter: B, score: 7,
+     letter: D, score: 5
   
 ---      
 title: Put Your Data in JSON format
@@ -115,15 +113,56 @@ content: |
   .. class:: copyable-code
   .. code-block:: javascript
   
-     { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A", grades},
-     { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
-     { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
-     { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
-     { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
+    
+     {
+      "name": "Bricksoil",
+      "qty": 134,
+      "rating": [
+        {
+          "letter": "A",
+          "score": 7
+        },
+        {
+          "letter": "B",
+          "score": 6
+        },
+        {
+          "letter": "C",
+        "  score": 5
+        },
+        {
+          "letter": "D",
+          "score": 4
+        },
+        {
+          "letter": "A",
+          "score": 3
+        },
+        {
+          "letter": "B",
+          "score": 2
+        },
+        {
+          "letter": "C",
+          "score": 1
+        }
+      ],
+      "size": {
+        "height": 480,
+        "length": 240,
+        "unit": "in",
+        "width": 428
+      },
+      "status": "C",
+      "tags": [
+        "messy",
+        "productive"
+      ]
+    }
+  
      
-  In this JSON example, we can embed data within our data points, keeping
-  the data together in one document but also allowing you to provide further
-  details on fields.
+  In this JSON example, you can embed data within your data points, keeping
+  the data together in one document.
   
      
   
