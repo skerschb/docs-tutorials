@@ -1,15 +1,23 @@
-title: Define Your Data Points
+title: Define Your Data Set
 ref: define_dp
 level: 4
 stepnum: 1
 content: |
-  Decide which fields you would like to have in your database
-  and how they relate to each other. For our example we are using
-  an inventory database, which tracks items and their
-  quantities, sizes, tags, and ratings.
   
-  Here is an example of an inventory database that gives us
-  some details about inventory items we are tracking.
+  When setting up a data store, your first task is to answer the
+  question "What data would I like to store and how do the fields relate
+  to each other?".
+
+  Since only you know the answer to this question, this guide uses a
+  hypothetical database. This database model can be used for the rest of
+  the CRUD (Create, Read, Update, Delete) guides.
+
+  For this example you will design an
+  inventory database which tracks items and their quantities, sizes,
+  tags, and ratings.
+  
+  Here is an example of the types of fields you might wish to capture in
+  your inventory database.
   
   .. list-table::
      :header-rows: 1
@@ -59,37 +67,43 @@ content: |
 
 ---
        
-title: Create an Example JSON message
+title: Identify Candidates for Embedded Data
 ref: JSON_message
 level: 4
 stepnum: 1
 content: |
   
-  While a table might seem like a good place to store data, as you can see
-  from the example above, there are fields in this database that require
-  multiple values and would not work well in a single column (size, tags, grades). 
+  While a table might seem like a good place to store data, as you can
+  see from the example above, there are fields in this data set that
+  require multiple values and would not work well modeled in a single
+  column (size, tags, ratings).
   
-  In a sql database you might solve this problem by creating a ``relational table``.
+  In a SQL database you might solve this problem by creating a
+  ``relational table``.
   
-  In MongoDB data is stored as embedded data within a document, or record.
+  In MongoDB, data is stored within documents. Within these documents
+  you can embed fields. This gives you the ability to store multiple
+  fields within a field.
   
-  In your data example, decide which fields require multiple values. These fields
-  will be candidates for arrays or objects within your JSON document.
+  In your example, decide which fields require multiple values. These
+  fields will be candidates for embedded documents or lists of embedded
+  documents within your document.
   
-  For example, in the data above, size might consist of three fields:
+  For example, in the data above, ``size`` might consist of three
+  fields:
   
   .. code-block:: javascript
   
      h: 14, w: 21, uom: "cm"
      
-  And grades might be split into:
+  And ``ratings`` might be split into:
 
   .. code-block:: javascript
   
      letter: A, score: 9
   
-  In addition, you might want to be able to handle multiple grades
-  per item. So you might have the need to store a list of grades, like so:
+  And you might need to handle multiple ratings per item. So you might
+  store them in a list:
   
   .. code-block:: javascript
   
@@ -103,12 +117,20 @@ ref: json_implement
 level: 4
 stepnum: 3
 content: |
-  To look at things the MongoDB way, first understand that data is stored as JSON
-  documents, and not tables with columns and rows. You define these documents
-  as you choose, and you can choose to provide a well-defined schema (defined data points),
-  or leave your schema open to change as your application changes.
+  
+  MongoDB stores documents in ``JSON`` format. JSON (JavaScript Object
+  Notation) is formatted with key/value pairs. In JSON documents,
+  fieldnames and values are separated by a colon, and fields are
+  separated by commas.
+
+  In MongoDB, you can choose to provide a schema with a pre-defined data
+  structure, or you can leave your schema undefined so that your
+  database structure can change as your application changes.
   
   A JSON document that stores an inventory item might look like
+  this.
+
+  .. note:: 
   
   .. class:: copyable-code
   .. code-block:: javascript
@@ -159,10 +181,17 @@ content: |
         "productive"
       ]
     }
+
+  This looks very different from the tabular data  structure you started
+  with in Step 1.
   
-     
-  In this JSON example, you can embed data within your data points, keeping
-  the data together in one document.
+
+  .. note:: You may have noticed the field names and string values in the dataset above are double
+     quoted ("). MongoDB can process field names that are not quoted as well, but when using
+     the mongo shell, certain special characters that are allowed by mongo but not by the shell
+     might cause errors. Quoting the field names allows you to bypass these errors. Number values are not quoted.
+
+  
   
      
   

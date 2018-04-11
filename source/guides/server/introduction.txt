@@ -5,21 +5,20 @@
    level: beginner
    product_version: 3.6
    result_description:
-     You will create a database model for your first MongoDB database.
+     Welcome to the Introduction To MongoDB Getting Started guide. This guide will show you how data is stored in MongoDB.
    time: 15
    prerequisites:
-     NA
+     - A browser
+     - An idea of what kind of data you'd like to store
    check_your_environment:
-     NA
-   considerations: NA
+     - There are no technical requirements for this guide.
    procedure:
      .. include:: /includes/steps/intro_server.rst
    summary:
-     If you have successfully completed this guide, you will have a basic idea of how MongoDB stores data.
+     Congratulations! You now have a basic idea of how MongoDB stores data.
    whats_next:
-     Create your first MongoDB data with the next guide -- 
-     `Create: Insert Data Into MongoDB
-     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+     `Connect To MongoDB Guide
+     <https://docs.mongodb.com/guides/server/drivers.txt>`__
    seealso:
      stuff
      
