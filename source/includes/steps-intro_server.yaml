@@ -64,7 +64,7 @@ content: |
 ---
        
 title: Identify Candidates for Embedded Data
-ref: JSON_message
+ref: id_message
 level: 4
 stepnum: 2
 content: |
