@@ -7,23 +7,41 @@
    result_description:
       You will retrieve data from MongoDB using criteria as expressed in queries. In the first read guide, you retrieved all of the documents of a given collection.
       In this guide, you will provide selection criteria to extract specific records from the database.
-   time: 15
+   time: 30
    prerequisites:
-     .. include:: /includes/steps/prereqs_crud.rst
+     .. include:: /includes/prereqs_read_CRUD.rst
    check_your_environment:
-     .. include:: /includes/steps/check_for_crud.rst
-   considerations: NA
    procedure:
+     Import Data and Query It
+     ~~~~~~~~~~~~~~~~~~~~~~~~
+     In the first part of this guide, you will retrieve documents from MongoDB using a simple query
+     document.
+     
      .. include:: /includes/steps/read_server_query.rst
+     
+     
+     Query Data Using Embedded Documents as Criteria
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     
+     Now that you have an understanding of how to retrieve data using query documents, you will now
+     query against embedded documents.
+     
+     .. include:: /includes/steps/read_embedded.rst
+     
+     Query Data Using Embedded Documents With Dot Notation
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     
+     Now you will explore how to query embedded documents using ``dot notation``.
+     
+     .. include:: /includes/steps/read_embedded_dot.rst
+     
    summary:
      If you have successfully completed this guide, you have retrieved data from MongoDB
-     using specific criteria as expressed in MongoDB's query syntax.
-     
-     In the next guide, you will learn how to query for data in MongoDB using
-     embedded fields as criteria.
+     using specific criteria as expressed in MongoDB's query syntax. You have also used
+     the embedded document query syntax to retrieve documents based on embedded fields.
    whats_next:
-     `Read: Retrieving Data from Embedded Fields In MongoDB With Queries
-     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+     `Retrieving Data from MongoDB using Operators and Compound Queries
+     <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/read_operators.html#procedure>`__
    seealso:
       
      

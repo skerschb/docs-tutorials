@@ -1,12 +1,34 @@
+title: Connect To Your MongoDB Instance
+ref: connect
+level: 4
+stepnum: 1
+content: |
+
+  If you haven't already done so, use `the connection URI form <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/drivers.html#craft-a-uri-to-connect-to-mongodb>`__. to construct the connection string required.
+
+  .. include:: /includes/drivers_connect.rst
+---
+title: Bind to the ``Test`` Database
+ref: bind_db
+level: 4
+stepnum: 2
+content: |
+  Bind to the database you wish
+  to query. In this case we will be using
+  ``test``.
+  
+  .. include:: /includes/bind_db.rst
+
+---
 title: Load More Data Into MongoDB
 ref: process-mongodb
 level: 4
-stepnum: 1
+stepnum: 3
 content: |
   Before you can write queries to extract data in a meaningful way, you'll need
   to add more data to your database. You can do that by running the ``insertMany()``
   command, or by loading data into MongoDB using ``mongoimport`` (see the `Getting Started
-  <http://linkhere>`__ on this topic).
+  <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/import.html>`__ on this topic).
   
   .. include:: /includes/driver-example-query-6.rst
 
@@ -14,7 +36,7 @@ content: |
 title: Retrieve Specific Documents in a Collection
 ref: query-one
 level: 4
-stepnum: 2
+stepnum: 4
 content: |
   
   Now that you have more documents in your collection, you can retrieve specific
@@ -33,7 +55,7 @@ content: |
 title: Iterate Over The Results
 ref: iterate-all
 level: 4
-stepnum: 3
+stepnum: 5
 content: |
   .. include:: /includes/iterate_all.rst
 
@@ -41,7 +63,7 @@ content: |
 title: Check Your Results
 ref: check-query-one
 level: 4
-stepnum: 4
+stepnum: 6
 content: |
   Your results should look something like
      .. code-block:: javascript

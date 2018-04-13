@@ -1,20 +1,42 @@
-title: Install The Client You Wish to Use
+title: Install Your Client
 ref: access-mongos
 level: 4
 stepnum: 1
 content: |
   .. include:: /includes/drivers_install.rst
 ---
-title: A Connection String to Connect to MongoDB
+title: Craft a URI to Connect to MongoDB
 ref: connection_string
 level: 4
 stepnum: 2
 content: |
-  .. include:: /includes/drivers_connect_string.rst
+  
+  In order to connect to MongoDB, you will need a ``URI`` String. A
+  ``URI`` (Uniform Resource Identifier) is similar to a URL, and is
+  supplied as a parameter to the ``mongo`` shell, ``Compass``, and the
+  MongoDB drivers in order to direct the client to connect to a MongoDB
+  instance using a specific host, port, username, and in some cases,
+  authentication database.
+  
+  Use the form below to populate the URI string.
+
+  .. note:: The $[password] will not be replaced in the string below.
+     Passwords with special characters need to be escaped [TODO]. Use
+     caution where you store and enter passwords. Do not enter passwords
+     in clear text on the command line.
+  
+  .. uriwriter::
 ---
 title: Connect
 ref: connect
 level: 4
 stepnum: 3
 content: |
+
+  .. note:: If you are connecting to MongoDB in the cloud (Atlas), you'll need to
+            put the ip address of the client you wish to use in the ip whitelist
+            in your Atlas account. For more details see the `MongoDB in the Cloud
+            Guide
+            <https://cloudguide>`__
+
   .. include:: /includes/drivers_connect.rst

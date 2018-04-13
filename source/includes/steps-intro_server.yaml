@@ -5,19 +5,14 @@ stepnum: 1
 content: |
   
   When setting up a data store, your first task is to answer the
-  question "What data would I like to store and how do the fields relate
-  to each other?".
+  question: "What data would I like to store and how do the fields
+  relate to each other?".         
 
-  Since only you know the answer to this question, this guide uses a
-  hypothetical database. This database model can be used for the rest of
-  the CRUD (Create, Read, Update, Delete) guides.
-
-  For this example you will design an
-  inventory database which tracks items and their quantities, sizes,
-  tags, and ratings.
+  This guide uses a hypothetical inventory database which can be used
+  for the rest of the *Getting Started: CRUD* guides. The inventory
+  database tracks items and their quantities, sizes, tags, and ratings.
   
-  Here is an example of the types of fields you might wish to capture in
-  your inventory database.
+  Here is an example of the types of fields you might wish to capture:
   
   .. list-table::
      :header-rows: 1
@@ -65,6 +60,7 @@ content: |
        - double-sided,white   
        - F, 2
 
+  .. note:: CRUD is a common acronym for the common database operations: ``Create``, ``Read``, ``Update``, and ``Delete``.
 ---
        
 title: Identify Candidates for Embedded Data
@@ -75,19 +71,20 @@ content: |
   
   While a table might seem like a good place to store data, as you can
   see from the example above, there are fields in this data set that
-  require multiple values and would not work well modeled in a single
-  column (size, tags, ratings).
+  require multiple values and would not be easy to search or display if
+  modeled in a single column (for example -- ``size``, ``tags``, and ``ratings``).
   
   In a SQL database you might solve this problem by creating a
   ``relational table``.
   
-  In MongoDB, data is stored within documents. Within these documents
+  In MongoDB, data is stored as documents. Within these documents
   you can embed fields. This gives you the ability to store multiple
   fields within a field.
   
-  In your example, decide which fields require multiple values. These
-  fields will be candidates for embedded documents or lists of embedded
-  documents within your document.
+  Once you have identified what fields you would like to store, decide
+  which fields require multiple values. These fields will be candidates
+  for embedded documents or lists of embedded documents within the
+  document.
   
   For example, in the data above, ``size`` might consist of three
   fields:
@@ -118,17 +115,18 @@ level: 4
 stepnum: 3
 content: |
   
-  MongoDB stores documents in ``JSON`` format. JSON (JavaScript Object
-  Notation) is formatted with key/value pairs. In JSON documents,
-  fieldnames and values are separated by a colon, and fields are
-  separated by commas.
+  The documents stored in MongoDB are in ``JSON`` format (though they
+  are actually stored as a binary form of JSON). JSON (JavaScript Object
+  Notation) is formatted as name/value pairs. In JSON documents,
+  fieldnames and values are separated by a colon, and sets of fields are
+  encapsulated in "curly braces" ({}) and then separated by commas.
 
-  In MongoDB, you can choose to provide a schema with a pre-defined data
-  structure, or you can leave your schema undefined so that your
-  database structure can change as your application changes.
+  In MongoDB, you can choose to provide your MongoDB instance with a
+  pre-defined data structure (called a *schema*) when you set up your
+  database, or you can leave your data structure undefined so it can
+  change as your application or data changes.
   
-  A JSON document that stores an inventory item might look like
-  this.
+  A JSON document that stores an inventory item might look like this:
 
   .. note:: 
   
@@ -184,10 +182,9 @@ content: |
 
   This looks very different from the tabular data  structure you started
   with in Step 1.
-  
 
   .. note:: You may have noticed the field names and string values in the dataset above are double
-     quoted ("). MongoDB can process field names that are not quoted as well, but when using
+     quoted ("). MongoDB can process field names that are not quoted, but when using
      the mongo shell, certain special characters that are allowed by mongo but not by the shell
      might cause errors. Quoting the field names allows you to bypass these errors. Number values are not quoted.
 

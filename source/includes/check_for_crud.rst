@@ -1,56 +1,23 @@
-title: Find your MongoDB instance.
-ref: process-mongodb
-level: 4
-stepnum: 1
-content: |
-  .. tabs::
+.. tabs::
 
-     tabs:
-       - id: atlas (cloud)
-         name: atlas
-         content: |
-           Atlas Check
+   tabs:
     
-       - id: windows
-         name: windows
-         content: |
-           Windows check
+     - id: windows
+       name: windows
+       content: |
+         Windows check
           
-       - id: linux
-         name: linux
-         content: |
-           To make sure your MongoDB process is running on linux, run the following command:
-             .. cssclass:: copyable-code
-             .. code-block:: sh
+     - id: linux
+       name: linux
+       content: |
+         To make sure your MongoDB process is running on linux, run the following command:
+           .. cssclass:: copyable-code
+           .. code-block:: sh
 
-                ps -ef | grep 'mongod'
+              ps -ef | grep 'mongod'
          
-           If a mongod process is running, you will see something like:
+         If a mongod process is running, you will see something like:
 
-             .. code-block:: sh 
+           .. code-block:: sh 
               
-                502  6990   540   0  7Feb18 ttys008    8:53.94 ./mongod
-       
----
-title: Access to Mongo Shell
-ref: access-mongos
-level: 4
-stepnum: 2
-content: |
-  If you have properly installed mongo, you should be able to access your mongod
-  instance locally or on the cloud by running:
-  
-  .. cssclass:: copyable-code
-  .. code-block:: sh
-  
-     mongo <URISTRING>
-
-  If a mongo shell successfully starts, you will see some log output to the console
-  and then a command prompt. Run the following command to make sure you are running mongo shell,
-  it will return the version number of the shell.
-    
-  .. cssclass:: copyable-code
-  .. code-block:: sh
-    
-     db.version()
-...
+              502  6990   540   0  7Feb18 ttys008    8:53.94 ./mongod

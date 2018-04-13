@@ -12,7 +12,6 @@
    prerequisites:
      .. include:: /includes/steps/cloud_pr.rst
    check_your_environment:
-   considerations: NA
    procedure:
      .. include:: /includes/steps/cloud.rst
    summary:

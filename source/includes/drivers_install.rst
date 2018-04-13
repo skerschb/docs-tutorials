@@ -3,18 +3,24 @@
    tabs:
      - id: shell
        content: |
-         MongoDB shell is packaged with the MongoDB Server distribution, and is also
-         available for users of Atlas as a client-only downlaad.
+         The ``mongo`` shell is packaged with the MongoDB Server Community and Enterprise
+         distributions, and is also available for users of Atlas as a client-only download.
+         
+         For standalone distributions (non-cloud), check in the bin directory of your
+         mongodb install dir. You should see a file called ``mongo``, which is the shell
+         executable.
+         
+         .. include:: /includes/mongo_shell_install.rst
          
      - id: compass
        content: |
-         Here's how you `install Compass
+         Check out our `Compass installation instructions
          <https://docs.mongodb.com/compass/current/install/>`__
 
      - id: python
        content: |
-         Here's how you `install pymongo
-         <http://api.mongodb.com/python/current/installation.html>`__
+         For more information, see the `Pymongo documentation
+         <http://api.mongodb.com/python/current/installation.html>`__.
          
      - id: motor
        content: |

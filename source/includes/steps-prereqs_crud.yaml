@@ -11,7 +11,7 @@ ref: auth
 level: 4
 stepnum: 2
 content: |
-  For standalone instances of MongoDB, make sure you `Enable authentication
+  For standalone instances of MongoDB, make sure you `enable authentication
   <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__.
   Without authentication enabled, your MongoDB instance is not secure.
   
@@ -28,8 +28,18 @@ ref: connection_string
 level: 4
 stepnum: 4
 content: |
+  In order to connect to MongoDB using your choice of client, you will
+  need a ``URI`` String. A ``URI`` (Uniform Resource Identifier) is similar
+  to a URL, and is supplied as a parameter to the Mongo shell and the MongoDB
+  drivers in order to direct the client to connect to the server using a
+  specific host, port, username, and in some cases, authentication database.
+  
+  Use the form below to populate the URI string.
+  
+  Note that passwords with special characters need to have those characters
+  escaped (todo: add list of characters? add password to fields in uriwriter?).
+  
   .. uriwriter::
- 
 ---
 title: Connect
 ref: connect

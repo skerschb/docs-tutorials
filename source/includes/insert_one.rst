@@ -68,10 +68,12 @@
          
          First, bind to the ``inventory`` collection.
          
-         .. cssclass:: copyable-code
-         .. code-block:: java
-         
-            MongoCollection collection = mongoDB.getCollection("inventory");
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/JavaConnectTest.java
+            :language: java
+            :dedent: 4
+            :start-after: Start Collection Bind
+            :end-before: End Collection Bind
             
      - id: java-async
        content: |

@@ -11,8 +11,6 @@
    prerequisites:
      .. include:: /includes/steps/prereqs_mtools.rst
    check_your_environment:
-     .. include:: /includes/steps/check_for_crud.rst
-   considerations: NA
    procedure:
      .. include:: /includes/steps/import.rst
    summary:
@@ -20,7 +18,10 @@
      Now in the next guide, you will retrieve the information you just imported.
    whats_next:
      `Read Data From MongoDB
-     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+     <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/read.html#procedure>`__
    seealso:
-     stuff
+    `Read Data From MongoDB
+     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+  
+     
      

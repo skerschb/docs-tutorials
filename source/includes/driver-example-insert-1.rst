@@ -34,6 +34,9 @@
 
      - id: java-sync
        content: |
+         Next, populate a Document with fields and an embedded document,
+         and insert it into the database.
+         
          .. class:: copyable-code
          .. literalinclude:: /driver-examples/DocumentationSamples.java
             :language: java
@@ -51,7 +54,7 @@
             :end-before: End Example 1
 
      - id: nodejs
-       content: |
+       content: |   
          .. class:: copyable-code
          .. literalinclude:: /driver-examples/examples_tests.js
             :language: javascript

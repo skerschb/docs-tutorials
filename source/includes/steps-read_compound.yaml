@@ -61,7 +61,7 @@ content: |
 title: Write an $or Query
 ref: query-or
 level: 4
-stepnum: 4
+stepnum: 6
 content: |
   
   Using the :query:`$or` operator, you can specify a compound query
@@ -79,7 +79,7 @@ content: |
 title: Iterate Over The Results
 ref: iterate-all-or
 level: 4
-stepnum: 5
+stepnum: 7
 content: |
   .. include:: /includes/iterate_all.rst
 
@@ -87,7 +87,7 @@ content: |
 title: Check Your Results
 ref: check-query-one-or
 level: 4
-stepnum: 6
+stepnum: 8
 content: |
   Your results should look something like
      .. code-block:: javascript

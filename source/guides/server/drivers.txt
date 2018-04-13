@@ -1,27 +1,27 @@
 .. guide::
-   title: Install MongoDB Client and Client Drivers
+   title: Connecting to MongoDB
    author: assorted
    type: Getting Started
    level: beginner
    product_version: 3.6
    result_description:
-     MongoDB supports several languages, and also bundles its own Mongo Shell. The shell and the drivers
-     allow you to access MongoDB interactively and programmatically. This guide will step you through installation
-     of the MongoDB Shell and/or client drivers. All you need to do is select what you'd like to use to access your MongoDB data!
+     MongoDB officially supports 11 API languages, bundles its own ``mongo`` shell, and provides a web-based client
+     called Compass. The shell, drivers, and web client allow you to access MongoDB interactively and programmatically. 
+     This guide will step you through installation of the MongoDB shell and supported clients. 
    time: 15
    prerequisites:
-     .. include:: /includes/steps/prereqs_drivers_install.rst
+     .. include:: /includes/prereqs_drivers_install.rst
    check_your_environment:
-     .. include:: /includes/steps/check_for_drivers_install.rst
-   considerations: NA
+     - Make sure you are using one of MongoDB's `supported platforms.
+       <https://docs.mongodb.com/manual/installation/#supported-platforms>`__
    procedure:
      .. include:: /includes/steps/drivers_install_gs.rst
    summary:
-     If you have successfully completed this guide, you have installed a client
-     to access MongoDB. In the next group of guides, you'll learn how to create,
-     read, update and delete data in MongoDB. 
+     Congratulations. I you have successfully completed this guide, you have installed a client
+     and opened a connection to MongoDB. In the next group of guides, you'll learn how to create, 
+     read, update, and delete data in MongoDB. 
    whats_next:
-     `Getting Started: Working with Data in MongoDB
-     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+     `Insert Data Into MongoDB
+     <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/insert.html>`__
    seealso:
      stuff

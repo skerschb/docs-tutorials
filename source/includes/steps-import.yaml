@@ -3,8 +3,15 @@ ref: bind_db
 level: 4
 stepnum: 1
 content: |
-  You will be using a ``Product`` inventory database for the Getting Started guides. Download
-  the dataset from `here <https://docs.mongodb.com/guides/server/inventory.out>`__
+
+  You will be using a product inventory database for the CRUD: Getting
+  Started guides. Download the dataset `here
+  <https://raw.githubusercontent.com/skerschb/docs-assets/primer-
+  dataset/inventory.json>`__.
+
+  Make sure you save the downloaded file to a file named ``inventory.json``.
+  Alternatively you can change the file parameter below to match the
+  filename you have chosen.
   
 ---      
 title: Import Data Into A Collection
@@ -12,12 +19,27 @@ ref: access-mongos
 level: 4
 stepnum: 2
 content: |
-  Use the ``mongoimport`` command to insert documents into the
-  ``inventory`` collection in the ``test`` database. If the
-  collection already exists, the ``--drop`` parameter will drop
-  the collection first. Please note the inventory.out file may not 
-  live in the directory quoted here. Make sure you find out where this file
-  is on your local machine.
+
+  Use the system shell or command prompt (not the ``mongo`` shell) to
+  insert documents. The ``mongoimport`` command is included in the
+  MongoDB Server distribution in both the Community and Enterprise
+  Editions and can be found in the MongoDB ``bin`` directory.
+
+  In this example you will insert documents into the ``inventory``
+  collection in the ``test`` database.
+
+  If the collection already exists, the ``--drop`` parameter will drop
+  the collection before adding it. Please note the inventory.json file
+  may not live in the directory quoted here. Make sure you find out where
+  this file is on your local machine.
+
+  By default, ``mongoimport`` command will import data into an instance
+  of MongoDB on localhost, port 27017. To import data into a mongod
+  instance running on a different host or port, specify the hostname or
+  port by including the ``--host`` and ``--port`` options in your
+  mongoimport command.
+
+  .. note:: 
   
   .. tabs::
 
@@ -29,7 +51,7 @@ content: |
            .. code-block:: javascript
  
          
-              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --passwprd <password> --drop --file ~\downloads\inventory.out
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~\downloads\inventory.out
   
        - id: unix
          name: unix (standalone)
@@ -37,7 +59,7 @@ content: |
            .. class:: copyable-code
            .. code-block:: javascript
   
-              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --passwprd <password> --drop --file ~/Downloads/inventory.out
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~/Downloads/inventory.out
           
        - id: atlas
          name: atlas (cloud)
@@ -45,6 +67,6 @@ content: |
            .. class:: copyable-code
            .. code-block:: javascript
   
-              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --passwprd <password> --drop --file ~/downloads/inventory.out
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~/downloads/inventory.out
           
           

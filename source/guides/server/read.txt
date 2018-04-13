@@ -8,10 +8,8 @@
       You will retrieve data from MongoDB.
    time: 15
    prerequisites:
-     .. include:: /includes/steps/prereqs_crud.rst
+     .. include:: /includes/prereqs_read_CRUD.rst
    check_your_environment:
-     .. include:: /includes/steps/check_for_crud.rst
-   considerations: NA
    procedure:
      .. include:: /includes/steps/read_server.rst
    summary:
@@ -19,7 +17,7 @@
      Now in the next guide, you will find data in your database table that matches certain
      criteria using queries.
    whats_next:
-     `Read: Retrieving Data from MongoDB With Queries
-     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+     `Retrieving Data from MongoDB With Queries
+     <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/read_queries.html#procedure>`__
    seealso:
      hi

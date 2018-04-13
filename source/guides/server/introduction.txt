@@ -1,11 +1,11 @@
 .. guide::
-   title: Introduction To MongoDB
+   title: Introduction to MongoDB
    author: assorted
    type: Getting Started
    level: beginner
    product_version: 3.6
    result_description:
-     Welcome to the Introduction To MongoDB Getting Started guide. This guide will show you how data is stored in MongoDB.
+     Welcome to the *Getting Started: Introduction to MongoDB* guide. This guide will show you how to structure your data for MongoDB.
    time: 15
    prerequisites:
      - A browser
@@ -18,7 +18,7 @@
      Congratulations! You now have a basic idea of how MongoDB stores data.
    whats_next:
      `Connect To MongoDB Guide
-     <https://docs.mongodb.com/guides/server/drivers.txt>`__
+     <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/drivers.html>`__
    seealso:
      stuff
      

@@ -12,7 +12,7 @@
  
      - id: compass
        content: |
-         If you have properly installed ::compass::, you will be able to `connect
+         If you have properly installed Compass, you will be able to `connect
          <https://docs.mongodb.com/compass/current/connect/#connect>`__
 
      - id: python
@@ -34,7 +34,7 @@
        content: |
          .. code-block:: java
          
-		    MongoDatabase database = mongoClient.getDatabase("test");
+		    MongoDatabase mongoDB = mongoClient.getDatabase("test");
 		    
 	
    

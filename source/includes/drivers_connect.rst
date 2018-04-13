@@ -2,46 +2,63 @@
 
    tabs:
      - id: shell
-       content: |
-         If you have properly installed mongo, you should be able to access your mongod
-         instance locally or on the cloud by running ``mongo``.
-         
-         Use this connection  widget to construct the connection string required.
+       content: |        
          
          .. cssclass:: copyable-code urilistener
          .. code-block:: sh
 
             mongo <URISTRING>
               
-         Alternatively you can authenticate once you run the shell command
+         Alternatively you can authenticate username and password once you run the ``mongo`` command
+         and execute the shell.
            
-           .. cssclass:: copyable-code
-           .. code-block:: sh
+         .. cssclass:: copyable-code
+         .. code-block:: sh
               
-              mongo <hostname>:<port>
+            mongo <hostname>:<port>
               
-         With
+         with
         
-           .. cssclass:: copyable-code
-           .. code-block:: sh
+         .. cssclass:: copyable-code
+         .. code-block:: sh
               
-              use admin
-              db.auth(user:"username", pwd:"password"})
+            use admin
+            db.auth(user:"<username>", pwd:"<password>"})
            
            
      - id: compass
-       content: |
-         If you have properly installed ::compass::, you will be able to `connect
+       content: |  
+         Hit the copy button on the URI below.
+         
+         .. cssclass:: copyable-code
+         .. code-block:: sh
+
+            <URISTRING>
+         
+         Then follow the instructions to `connect
          <https://docs.mongodb.com/compass/current/connect/#connect>`__
 
      - id: python
        content: |
+         It's a good idea to put your connection code in a class so
+         that it can be reused.
+         
          .. class:: copyable-code
          .. literalinclude:: /driver-examples/connect.py
             :language: python
             :dedent: 0
             :start-after: Start Connect
-            :end-before: End Connect     
+            :end-before: End Connect
+         
+         Now add a caller, and you've got a python executable
+         that will connect to mongodb.
+         
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/connecttest.py
+            :language: python
+            :dedent: 0
+            :start-after: Start Caller Connect
+            :end-before: End Caller Connect
          
      - id: motor
        content: |
@@ -51,17 +68,31 @@
 
      - id: java-sync
        content: |
+         This example uses a static utility method.
+         
          .. class:: copyable-code
          .. literalinclude:: /driver-examples/JavaConnectDocumentationSamples.java
             :language: java
             :dedent: 4
             :start-after: Start Connect
             :end-before: End Connect
+            
+         The caller
+            
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/JavaConnectTest.java
+            :language: java
+            :dedent: 4
+            :start-after: Start Call Example
+            :end-before: End Call Example
 		    
 	
    
      - id: nodejs
        content: |
+         Note that you will need to modify the URI string
+         manually below, as it requires URI encoding.
+         
          .. class:: copyable-code
          .. literalinclude:: /driver-examples/connect.js
             :language: javascript
@@ -71,17 +102,25 @@
          
      - id: php
        content: |
-         .. cssclass:: copyable-code
-         .. code-block:: php
+         The connection code has been separated into a class
          
-   	        <?php
-
-            use MongoDB\Database;
- 
-            // Manager Class
-            $manager = new MongoDB\Driver\Manager("mongodb://testuser:password@localhost:27017/test?authSource=admin");
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/connect.php
+            :language: php
+            :dedent: 0
+            :start-after: Start Connect
+            :end-before: End Connect
+            
+         A php test script makes the call
          
-         
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/phpconnecttest.phpt
+            :language: php
+            :dedent: 0
+            :start-after: Start Connect Call
+            :end-before: End Connect Call
+            
+             
   
      - id: perl
        content: |

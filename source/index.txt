@@ -8,22 +8,19 @@ Guides
 
 .. cssclass:: guides-intro
 
-   Get Started with MongoDB or take a Deep Dive into
-   an advanced concept with these step-by-step guides.
-
+   New to MongoDB? Follow the path to instant productivity
+   with our Getting Started Guides. Or explore a topic in-depth
+   with our Use Cases and Deep Dives.
+   
 .. guide-index::
 
    guides/server/introduction
-   guides/server/import
    guides/server/drivers
-   guides/cloud/atlas
-   CRUD Guides: Create
+   CRUD Guides: Creating, Reading, Updating, and Deleting Data
      guides/server/insert
-   CRUD Guides: Read
      guides/server/read
      guides/server/read_queries
-     guides/server/read_embedded
-     guides/server/read_embedded_dot
      guides/server/read_operators
-     guides/server/read_compound
-     guides/server/read_compound2
+   guides/server/import
+   guides/cloud/atlas
+  
