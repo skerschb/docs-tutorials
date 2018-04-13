@@ -17,7 +17,7 @@
    summary:
      Congratulations! You now have a basic idea of how MongoDB stores data.
    whats_next:
-     `Connect To MongoDB Guide
+     `Connect to MongoDB
      <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/drivers.html>`__
    seealso:
      stuff here sometime soon
