@@ -1,6 +1,6 @@
 .. guide::
    title: Introduction to MongoDB
-   author: Docs Team 
+   author: Documentation Team 
    type: Getting Started
    level: beginner
    product_version: 3.6
