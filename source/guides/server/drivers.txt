@@ -3,6 +3,18 @@
    author: assorted
    type: Getting Started
    level: beginner
+   languages:
+     shell
+     compass
+     python
+     java-sync
+     nodejs
+     php
+     motor
+     csharp
+     perl
+     ruby
+     scala
    product_version: 3.6
    result_description:
      MongoDB officially supports 11 API languages, bundles its own ``mongo`` shell, and provides a web-based client
