@@ -3,7 +3,9 @@ ref: access-mongos
 level: 4
 stepnum: 1
 content: |
+  
   .. include:: /includes/drivers_install.rst
+
 ---
 title: Craft a URI to Connect to MongoDB
 ref: connection_string
@@ -23,7 +25,8 @@ content: |
   .. note:: The $[password] will not be replaced in the string below.
      Passwords with special characters need to be escaped [TODO]. Use
      caution where you store and enter passwords. Do not enter passwords
-     in clear text on the command line.
+     in clear text in a non-mongo shell or command prompt, as it will be
+     visible in your shell history.
   
   .. uriwriter::
 ---

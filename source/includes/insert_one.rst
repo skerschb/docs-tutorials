@@ -77,20 +77,21 @@
             
      - id: java-async
        content: |
-         `com.mongodb.reactivestreams.client.MongoCollection.insertOne <http://mongodb.github.io/mongo-java-driver-reactivestreams/1.6/javadoc/com/mongodb/reactivestreams/client/MongoCollection.html#insertOne(TDocument)>`_
-         inserts a *single* :ref:`document<bson-document-format>` into
-         a collection with the `Java Reactive Streams
-         Driver <http://mongodb.github.io/mongo-java-driver-reactivestreams/1.6/>`_:
-
-         .. code-block:: json
-
-            { item: "canvas", qty: 100, tags: ["cotton"], size: { h: 28, w: 35.5, uom: "cm" } }
-
-         The following example inserts the document above into the
+         
+         The following example inserts a new document into the
          ``inventory`` collection. If the document does not specify
          an ``_id`` field, the driver adds the ``_id`` field with an
          ObjectId value to the new document. See
          :ref:`write-op-insert-behavior`.
+         
+         First, bind to the ``inventory`` collection.
+         
+         .. class:: copyable-code
+         .. literalinclude:: /driver-examples/JavaConnectTest.java
+            :language: java
+            :dedent: 4
+            :start-after: Start Collection Bind
+            :end-before: End Collection Bind
 
      - id: nodejs
        content: |

@@ -10,7 +10,13 @@
          mongodb install dir. You should see a file called ``mongo``, which is the shell
          executable.
          
+         If you are unable to find an install of ``mongo`` in your bin
+         directory, or if you don't have a local copy of mongo and need
+         to install the client separately, select the appropriate
+         environment below and follow the install directions.
+         
          .. include:: /includes/mongo_shell_install.rst
+         
          
      - id: compass
        content: |
