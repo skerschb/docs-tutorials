@@ -3,10 +3,22 @@
    author: assorted
    type: Getting Started
    level: beginner
+   languages:
+     shell
+     compass
+     python
+     java-sync
+     nodejs
+     php
+     motor
+     csharp
+     perl
+     ruby
+     scala
    product_version: 3.6
    result_description:
-     MongoDB officially supports 11 API languages, bundles its own ``mongo`` shell, and provides a web-based client
-     called Compass. The shell, drivers, and web client allow you to access MongoDB interactively and programmatically. 
+     MongoDB  officially supports 11 API languages, bundles its own ``mongo`` shell, and provides a web-based client
+     called Compass. The drivers, shell, and web client allow you to access MongoDB interactively and programmatically. 
      This guide will step you through installation of the MongoDB shell and supported clients. 
    time: 15
    prerequisites:
@@ -17,7 +29,7 @@
    procedure:
      .. include:: /includes/steps/drivers_install_gs.rst
    summary:
-     Congratulations. I you have successfully completed this guide, you have installed a client
+     Congratulations. If you have  successfully completed this guide, you have installed a client
      and opened a connection to MongoDB. In the next group of guides, you'll learn how to create, 
      read, update, and delete data in MongoDB. 
    whats_next:

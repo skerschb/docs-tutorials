@@ -64,7 +64,7 @@ content: |
 ---
        
 title: Identify Candidates for Embedded Data
-ref: JSON_message
+ref: id_message
 level: 4
 stepnum: 2
 content: |
@@ -183,10 +183,12 @@ content: |
   This looks very different from the tabular data  structure you started
   with in Step 1.
 
-  .. note:: You may have noticed the field names and string values in the dataset above are double
-     quoted ("). MongoDB can process field names that are not quoted, but when using
-     the mongo shell, certain special characters that are allowed by mongo but not by the shell
-     might cause errors. Quoting the field names allows you to bypass these errors. Number values are not quoted.
+  .. note:: You may have noticed the field names and string values in
+     the dataset above are double quoted ("). MongoDB can process field
+     names that are not quoted, but when using the mongo shell, certain
+     special characters that are allowed by mongo but not by the shell
+     might cause errors. Quoting the field names allows you to bypass
+     these errors. Number values are not quoted.
 
   
   

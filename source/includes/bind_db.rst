@@ -3,6 +3,10 @@
    tabs:
      - id: shell
        content: |
+         .. note:: By binding to the database, if it does not already
+            exist, you will be creating it.
+         
+         
          To bind to the ``test`` database in the shell, type          
          
          .. cssclass:: copyable-code
@@ -12,13 +16,16 @@
  
      - id: compass
        content: |
-         If you have properly installed Compass, you will be able to `connect
-         <https://docs.mongodb.com/compass/current/connect/#connect>`__
-
+         
+         Click the :guilabel:`Create Database` button.
+         
+         .. figure:: /images/compass-create-database.png
+            :alt: Screeenshot after connecting with the "Create Database" button.
+            :figwidth: 750px
+     
      - id: python
        content: |
-         Connect to the MongoDB instance and authenticate.
-         
+           
          .. cssclass:: copyable-code
          .. code-block:: sh
 
@@ -26,6 +33,7 @@
          
      - id: motor
        content: |
+       
          Motor doesn't connect to MongoDB until it runs an operation against the database.
          So "creating" a connection merely creates a handle to the connection object.
          
@@ -50,7 +58,9 @@
          
      - id: php
        content: |
-         TODO:: figure out which PHP libraries we are supporting?????
+         
+         Now we are ready to bind to the database.        
+        
          .. cssclass:: copyable-code
          .. code-block:: php
          
