@@ -31,50 +31,57 @@
          
          .. code-block:: sh
           
-            from pprint import pprint
-                
-            for inventory in cursor:
-                 pprint(inventory)   
+           {u'_id': ObjectId('5ada8c109b267e9d1ade903a'),
+            u'item': u'paper',
+            u'qty': 100,
+            u'size': {u'h': 8.5, u'uom': u'in', u'w': 11},
+            u'status': u'D'}
+           {u'_id': ObjectId('5ada8c109b267e9d1ade903b'),
+            u'item': u'planner',
+            u'qty': 75,
+            u'size': {u'h': 22.85, u'uom': u'cm', u'w': 30},
+            u'status': u'D'}
 
      - id: motor
        content: |
          
          .. code-block:: sh
 
-            async for doc in cursor:
-                print(doc)
+           {'_id': ObjectId('5adb5140aea650d18e402f19'),
+            'item': 'paper',
+            'qty': 100,
+            'size': {'h': 8.5, 'uom': 'in', 'w': 11},
+            'status': 'D'}
+           {'_id': ObjectId('5adb5140aea650d18e402f1a'),
+            'item': 'planner',
+            'qty': 75,
+            'size': {'h': 22.85, 'uom': 'cm', 'w': 30},
+            'status': 'D'}
 
      - id: java-sync
        content: |
-         Create a method to print the results of the iteration 
-         
+           
          .. class: copyable-code
          .. code-block:: sh
          
-            Block<Document> printBlock = new Block<Document>() {
-                @Override
-                public void apply(final Document document) {
-                    System.out.println(document.toJson());
-                }
-            };
-         
-         
-            
-         Then query the collection for documents.
-         
-         .. class: copyable-code
-         .. code-block:: sh
-       
-            findIterable.forEach(printBlock);
+            { "_id" : { "$oid" : "5ada88359b267e9b5bd393bb" }, "item" : "paper", "qty" : 100, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "D" }
+            { "_id" : { "$oid" : "5ada88359b267e9b5bd393bc" }, "item" : "planner", "qty" : 75, "size" : { "h" : 22.85, "w" : 30, "uom" : "cm" }, "status" : "D" }
 
      - id: nodejs
        content: |
          .. class:: copyable-code
          .. code-block:: sh
             
-            cursor.each(function(err, doc) {
-                console.log(doc);
-            });
+            { _id: 5ade424c84c9ca2d56d31699,
+              item: 'paper',
+              qty: 100,
+              size: { h: 8.5, w: 11, uom: 'in' },
+              status: 'D' }
+            { _id: 5ade424c84c9ca2d56d3169a,
+              item: 'planner',
+              qty: 75,
+              size: { h: 22.85, w: 30, uom: 'cm' },
+              status: 'D' }
 
             
      - id: php
@@ -88,26 +95,11 @@
 
      - id: perl
        content: |
-         
-         perl doesn't have native support for JSON, for this example,
-         you can download the ``JSON`` module from cpan by running
-
-         .. code-block:: sh
-
-            cpan install JSON
-
-
          .. code-block:: sh
          
-            use JSON;
-
-            my $JSON = JSON->new->utf8;
-            $JSON->convert_blessed(1);
-            
             while (my $doc = $cursor->next) {
-               my $object = $JSON->encode($doc);
-               print "$object\n";
-            }
+                print $doc ."\n";
+            } 
 
      - id: ruby
        content: |
@@ -128,6 +120,5 @@
        content: |
          .. code-block:: sh
            
-            foreach (var doc in result) {
-               Console.WriteLine(doc.ToJson());
-            }
+            { "_id" : ObjectId("5ade239b5923f61e2db8541e"), "item" : "paper", "qty" : 100, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "D" }
+            { "_id" : ObjectId("5ade239b5923f61e2db8541f"), "item" : "planner", "qty" : 75, "size" : { "h" : 22.850000000000001, "w" : 30, "uom" : "cm" }, "status" : "D" }

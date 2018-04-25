@@ -31,50 +31,38 @@
          
          .. code-block:: sh
           
-            from pprint import pprint
-                
-            for inventory in cursor:
-                 pprint(inventory)   
+            {u'_id': ObjectId('5ada5bdeaea650851c715601'),
+            u'item': u'canvas',
+            u'qty': 101,
+            u'size': {u'h': 28, u'uom': u'cm', u'w': 35.5},
+            u'tags': [u'cotton']}
 
      - id: motor
        content: |
          
          .. code-block:: sh
 
-            async for doc in cursor:
-                print(doc)
+            {'_id': ObjectId('5adb4ee0aea650d05134bf62'), 'item': 'canvas', 'qty': 100, 'tags': ['cotton'], 'size': {'h': 28, 'w': 35.5, 'uom': 'cm'}}
 
      - id: java-sync
        content: |
-         Create a method to print the results of the iteration 
          
          .. class: copyable-code
          .. code-block:: sh
          
-            Block<Document> printBlock = new Block<Document>() {
-                @Override
-                public void apply(final Document document) {
-                    System.out.println(document.toJson());
-                }
-            };
-         
-         
-            
-         Then query the collection for documents.
-         
-         .. class: copyable-code
-         .. code-block:: sh
-       
-            findIterable.forEach(printBlock);
+            { "_id" : { "$oid" : "5ada85ae9b267e9ac4d84105" }, "item" : "canvas", "qty" : 100, "tags" : ["cotton"], "size" : { "h" : 28, "w" : 35.5, "uom" : "cm" } }
 
      - id: nodejs
        content: |
          .. class:: copyable-code
          .. code-block:: sh
             
-            cursor.each(function(err, doc) {
-                console.log(doc);
-            });
+            { _id: 5ade4124aac4f92cf89f53aa,
+              item: 'journal',
+              qty: 25,
+              size: { h: 14, w: 21, uom: 'cm' },
+              status: 'A' }
+
 
             
      - id: php
@@ -88,26 +76,11 @@
 
      - id: perl
        content: |
-         
-         perl doesn't have native support for JSON, for this example,
-         you can download the ``JSON`` module from cpan by running
-
-         .. code-block:: sh
-
-            cpan install JSON
-
-
          .. code-block:: sh
          
-            use JSON;
-
-            my $JSON = JSON->new->utf8;
-            $JSON->convert_blessed(1);
-            
             while (my $doc = $cursor->next) {
-               my $object = $JSON->encode($doc);
-               print "$object\n";
-            }
+                print $doc ."\n";
+            } 
 
      - id: ruby
        content: |
@@ -128,6 +101,4 @@
        content: |
          .. code-block:: sh
            
-            foreach (var doc in result) {
-               Console.WriteLine(doc.ToJson());
-            }
+            { "_id" : ObjectId("5ade1ebd9299811bc223e797"), "item" : "canvas", "qty" : 100, "tags" : ["cotton"], "size" : { "h" : 28, "w" : 35.5, "uom" : "cm" } }

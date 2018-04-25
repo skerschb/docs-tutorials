@@ -87,4 +87,9 @@
          
          .. figure:: /images/whitelistpanel.png
             :scale: 50%
+
+         Once you have downloaded the shell distribution that correlates
+         to your environment, if you need further instructions on how to
+         install the shell, select the appropriate environment tab in
+         this step.
          

@@ -5,23 +5,23 @@ stepnum: 1
 content: |
 
   If you haven't already done so, use `the connection URI form
-  <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/drivers.html#craft-a-uri-to-connect-to-mongodb>`__. 
+  <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/drivers.html#craft-a-uri-to-connect-to-mongodb>`__ 
   to construct the connection string required for this guide.
 
   .. note:: Even if you used `the connection URI form
      <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/drivers.html#craft-a-uri-to-connect-to-mongodb>`__
      and you see your fields populated in the code example, 
-     you will still need to replace the password field in the 
-     URI string with the password associated with your MongoDB user account.
+     you will still need to provide the password in the 
+     URI string, through the ``mongo`` prompt, or through the Compass connect interface.
 
   .. include:: /includes/drivers_connect.rst
 ---
-title: Bind to the ``Test`` Database
+title: Switch to the ``Test`` Database
 ref: bind_db
 level: 4
 stepnum: 2
 content: |
-  Bind to the database you wish
+  Switch to the database you wish
   to add your data to. In this case you will be calling your database ``test``.
   
   .. include:: /includes/bind_db.rst

@@ -1,6 +1,6 @@
-- `An Installation of MongoDB <http://link>`__.
+- `An Installation of MongoDB </manual/installation>`__.
 - `Authentication Enabled
-  <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__.
+  </manual/tutorial/enable-authentication/#procedure>`__.
   Without authentication enabled, your MongoDB instance is not secure.
 
   

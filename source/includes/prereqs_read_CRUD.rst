@@ -1,5 +1,2 @@
-
-- `Complete the Connecting to MongoDB Guide <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/drivers.html>`__. This guide helps with setting a foundation for understanding how to set up MongoDB, and how to connect to it.
-
-
+It's a good idea to complete the :doc:`/guides/server/drivers` guide before attempting this guide, particularly if you haven't installed a client to connect to MongoDB.
 

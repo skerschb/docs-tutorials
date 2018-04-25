@@ -23,7 +23,6 @@ MongoDB data.
        content: |
          Where :client: is the name of the variable assigned to the MongoClient.
          
-         .. class:: copyable-code
          .. code-block:: javascript
 
             db = client.test

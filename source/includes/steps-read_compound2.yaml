@@ -21,7 +21,7 @@ ref: iterate-all
 level: 4
 stepnum: 2
 content: |
-  .. include:: /includes/iterate_all.rst
+  .. include:: /includes/iterate_all_noshellcursor.rst
 
 ---
 title: Check Your Results
@@ -29,29 +29,34 @@ ref: check-query-one
 level: 4
 stepnum: 3
 content: |
-  Your results should look something like
-    .. code-block:: javascript
-       
-       {
-          "_id" : ObjectId("5ab3c27c9b8f98766c10e421"),
-          "item" : "Moreganic",
-          "lastModified" : ISODate("2015-01-28T16:43:11.518Z"),
-          "qty" : 12,
-          "rating" : [
-              {
-                  "letter" : "A",
-                  "score" : 1
-              }
-          ],
-          "size" : {
-              "h" : 392,
-              "l" : 469,
-              "uom" : "cm",
-              "w" : 237
-          },
-          "status" : "A",
-          "tags" : [
-              "produce",
-              "cobweb"
-          ]
-       }
+  
+  If you have loaded data into your test database, you will see one or
+  more JSON documents returned. Your results should look something like
+  the JSON below. Note that the record below has a ``status`` of ``"A"``
+  and a ``qty`` less than ``30`` per the criteria in the compound query. (results_read7.rst)
+
+  .. code-block:: javascript
+     
+     {
+        "_id" : ObjectId("5ab3c27c9b8f98766c10e421"),
+        "item" : "Moreganic",
+        "lastModified" : ISODate("2015-01-28T16:43:11.518Z"),
+        "qty" : 12,
+        "rating" : [
+            {
+                "letter" : "A",
+                "score" : 1
+            }
+        ],
+        "size" : {
+            "h" : 392,
+            "l" : 469,
+            "uom" : "cm",
+            "w" : 237
+        },
+        "status" : "A",
+        "tags" : [
+            "produce",
+            "cobweb"
+        ]
+     }

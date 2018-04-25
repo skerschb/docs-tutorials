@@ -15,18 +15,18 @@ content: |
   
   In order to connect to MongoDB, you will need a ``URI`` String. A
   ``URI`` (Uniform Resource Identifier) is similar to a URL, and is
-  supplied as a parameter to the ``mongo`` shell, ``Compass``, and the
+  supplied as a parameter to the ``mongo`` shell, Compass, and the
   MongoDB drivers in order to direct the client to connect to a MongoDB
   instance using a specific host, port, username, and in some cases,
   authentication database.
   
   Use the form below to populate the URI string.
 
-  .. note:: The $[password] will not be replaced in the string below.
-     Passwords with special characters need to be escaped [TODO]. Use
-     caution where you store and enter passwords. Do not enter passwords
-     in clear text in a non-mongo shell or command prompt, as it will be
-     visible in your shell history.
+  .. note:: The $[password] will not be replaced in the string below, so you will 
+            need to replace the string with your password.
+            Use caution where you store and enter passwords, particularly when
+            running from a shell or command prompt. Special characters
+            in passwords must be escaped.
   
   .. uriwriter::
 ---

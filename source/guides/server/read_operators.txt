@@ -1,16 +1,29 @@
 .. guide::
    title: Retrieving Data using Operators and Compound Queries
-   author: assorted
+   author: docs team
    type: Getting Started
    level: beginner
    product_version: 3.6
+   languages:
+     shell
+     compass
+     python
+     java-sync
+     nodejs
+     php
+     motor
+     csharp
+     perl
+     ruby
+     scala
    result_description:
-      In the previous read guide, you retrieved data using embedded fields and ``dot notation``. In this guide, you will retrieve
-      data with MongoDB's comparison operators.
+      In the previous read guide, :doc:`/guides/server/read_queries`, you retrieved data using embedded fields and ``dot notation``. In this guide, you will retrieve
+      data from the ``inventory`` collection with MongoDB's comparison operators.
    time: 15
    prerequisites:
      .. include:: /includes/prereqs_read_CRUD.rst
    check_your_environment:
+     .. include:: /includes/check_for_drivers_install.rst
    procedure:
      Retrieving Data from Embedded Fields with Comparison Operators
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,7 +41,9 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      
      Now you will retrieve data from MongoDB using AND and OR logic together to form compound queries.
+     
      .. include:: /includes/steps/read_compound2.rst
+   
    summary:
      If you have successfully completed this guide, you have retrieved data from MongoDB
      using MongoDB query operators.
@@ -36,5 +51,6 @@
      `Read: Query Using Specific Embedded Fields In MongoDB
      <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
    seealso:
-     `Learn more about Query Operators
-     <https://docs.mongodb.com/manual/reference/operator/query>`__
+     - :doc:`/guides/server/insert`
+     - :doc:`/guides/server/update`
+     - :doc:`/guides/server/delete`

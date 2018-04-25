@@ -4,13 +4,32 @@
    type: Getting Started
    level: beginner
    product_version: 3.6
+   languages:
+     shell
+     compass
+     python
+     java-sync
+     nodejs
+     php
+     motor
+     csharp
+     perl
+     ruby
+     scala
    result_description:
-      You will retrieve data from MongoDB using criteria as expressed in queries. In the first read guide, you retrieved all of the documents of a given collection.
-      In this guide, you will provide selection criteria to extract specific records from the database.
+
+      In the first :doc:`/guides/server/read` guide, you retrieved a
+      document from the ``inventory`` collection. In this guide, you
+      will:
+      
+      - use the ``insertMany`` command to insert more documents into the collection
+      - query the documents
+
    time: 30
    prerequisites:
      .. include:: /includes/prereqs_read_CRUD.rst
    check_your_environment:
+     .. include:: /includes/check_for_drivers_install.rst
    procedure:
      Import Data and Query It
      ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,5 +62,6 @@
      `Retrieving Data from MongoDB using Operators and Compound Queries
      <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/read_operators.html#procedure>`__
    seealso:
-      
-     
+     - :doc:`/guides/server/insert`
+     - :doc:`/guides/server/update`
+     - :doc:`/guides/server/delete`

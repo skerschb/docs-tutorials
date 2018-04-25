@@ -1,15 +1,15 @@
 .. guide::
-   title: Importing Data Into MongoDB
+   title: Importing Data into MongoDB
    author: assorted
    type: Getting Started
    level: beginner
    product_version: 3.6
    result_description:
-     You can bulk import data into MongoDB using the ``mongoimport`` command distributed with the server.
+     You can bulk import data into MongoDB using the :binary:`~bin.mongoimport` executable distributed with the server.
      This guide will show you how.
    time: 15
    prerequisites:
-     .. include:: /includes/steps/prereqs_mtools.rst
+     .. include:: /includes/prereqs_drivers_install.rst
    check_your_environment:
    procedure:
      .. include:: /includes/steps/import.rst
@@ -17,11 +17,10 @@
      If you have successfully completed this guide, you have imported your first mongoDB data.
      Now in the next guide, you will retrieve the information you just imported.
    whats_next:
-     `Read Data From MongoDB
-     <https://docs-mongodbcom-staging.corp.mongodb.com/docs-tutorials/skersch/Guides/guides/server/read.html#procedure>`__
+     
+     
    seealso:
-    `Read Data From MongoDB
-     <https://docs.mongodb.com/manual/tutorial/enable-authentication/#procedure>`__
+     - :doc:`/guides/server/read`
   
      
      

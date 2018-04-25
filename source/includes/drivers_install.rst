@@ -3,11 +3,15 @@
    tabs:
      - id: shell
        content: |
-         The ``mongo`` shell is packaged with the MongoDB Server Community and Enterprise
-         distributions, and is also available for users of Atlas as a client-only download.
          
-         For standalone distributions (non-cloud), check in the bin directory of your
-         mongodb install dir. You should see a file called ``mongo``, which is the shell
+         The ``mongo`` shell is packaged with the MongoDB Server
+         Community and Enterprise distributions, and is also available
+         for users of Atlas as a client-only download.
+         
+         For standalone (non-cloud) distributions, check in the bin
+         directory of your MongoDB install directory (MongoDB installs
+         usually live in a directory that starts with "mongodb-"). You
+         should see a file called ``mongo``, which is the shell
          executable.
          
          If you are unable to find an install of ``mongo`` in your bin

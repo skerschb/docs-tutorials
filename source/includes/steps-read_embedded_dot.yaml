@@ -4,11 +4,13 @@ level: 4
 stepnum: 1
 content: |
   
-  To specify criteria for data that is embedded within the JSON documents, you need to pass a JSON document
-  to the find() method that contains the criteria you are searching for.
+  To specify criteria for data that is embedded within the JSON
+  documents, you need to pass a JSON document to the find() method that
+  contains the criteria you are searching for.
 
-  If you wish to select documents that exactly match just one of the fields in an embedded JSON object, use 
-  :term:`dot notation` (``"field.nestedField"``).
+  If you wish to select documents that exactly match just one of the
+  fields in an embedded JSON object, use  :term:`dot notation`
+  (``"field.nestedField"``).
 
   When querying using dot notation, the field and nested field must be
   inside quotation marks.
@@ -33,57 +35,62 @@ ref: check-query-one
 level: 4
 stepnum: 4
 content: |
-  Your results should look something like
-    .. code-block:: javascript
   
-       {
-        "_id" : ObjectId("5ab3c27c9b8f98766c10dd24"),
-        "item" : "33Ease",
-        "lastModified" : ISODate("2015-10-16T08:15:42.264Z"),
-        "qty" : 3794,
-        "rating" : [
-           {
-              "letter" : "A",
-              "score" : 8
-           },
-           {
-              "letter" : "B",
-              "score" : 7
-           },
-           {
-              "letter" : "C",
-              "score" : 6
-           },
-           {
-              "letter" : "D",
-              "score" : 5
-           },
-           {
-              "letter" : "A",
-              "score" : 4
-           },
-           {
-              "letter" : "B",
-              "score" : 3
-           },
-           {
-              "letter" : "C",
-              "score" : 2
-           },
-           {
-              "letter" : "D",
-              "score" : 1
-           }
-       ],
-        "size" : {
+  If you have loaded data into your test database, you will see one or
+  more JSON documents returned. Your results should look something like
+  the JSON below. Note that the record below has a ``uom`` of ``in``.
+  (results_read4.rst)
+
+  .. code-block:: javascript
+  
+     {
+      "_id" : ObjectId("5ab3c27c9b8f98766c10dd24"),
+      "item" : "33Ease",
+      "lastModified" : ISODate("2015-10-16T08:15:42.264Z"),
+      "qty" : 3794,
+      "rating" : [
+         {
+           "letter" : "A",
+           "score" : 
+         },
+         {
+           "letter" : "B",
+           "score" : 7
+         },
+         {
+           "letter" : "C",
+            "score" : 6
+         },
+         {
+           "letter" : "D",
+           "score" : 5
+         },
+         {
+           "letter" : "A",
+           "score" : 4
+         },
+         {
+           "letter" : "B",
+           "score" : 3
+         },
+         {
+           "letter" : "C",
+           "score" : 2
+         },
+         {
+           "letter" : "D",
+           "score" : 1
+         }
+      ],
+      "size" : {
         "h" : 442,
         "l" : 300,
         "uom" : "in",
         "w" : 488
-        },
-        "status" : "C",
+      },
+      "status" : "C",
         "tags" : [
           "saw",
           "happy"
         ]
-       }
+      }

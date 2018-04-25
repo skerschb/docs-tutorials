@@ -11,7 +11,7 @@
        name: linux
        content: |
          To make sure your MongoDB process is running on linux, run the following command:
-           .. cssclass:: copyable-code
+           
            .. code-block:: sh
 
               ps -ef | grep 'mongod'

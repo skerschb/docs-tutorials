@@ -31,50 +31,41 @@
          
          .. code-block:: sh
           
-            from pprint import pprint
-                
-            for inventory in cursor:
-                 pprint(inventory)   
+            {u'_id': ObjectId('5ada625baea65088bf0aa131'),
+             u'item': u'journal',
+             u'qty': 25,
+             u'size': {u'h': 14, u'uom': u'cm', u'w': 21},
+             u'status': u'A'}
 
      - id: motor
        content: |
          
          .. code-block:: sh
 
-            async for doc in cursor:
-                print(doc)
+            {'_id': ObjectId('5adb5140aea650d18e402f17'),
+             'item': 'journal',
+             'qty': 25,
+             'size': {'h': 14, 'uom': 'cm', 'w': 21},
+             'status': 'A'}
 
      - id: java-sync
        content: |
-         Create a method to print the results of the iteration 
          
          .. class: copyable-code
          .. code-block:: sh
          
-            Block<Document> printBlock = new Block<Document>() {
-                @Override
-                public void apply(final Document document) {
-                    System.out.println(document.toJson());
-                }
-            };
-         
-         
-            
-         Then query the collection for documents.
-         
-         .. class: copyable-code
-         .. code-block:: sh
-       
-            findIterable.forEach(printBlock);
+            { "_id" : { "$oid" : "5ada88359b267e9b5bd393b9" }, "item" : "journal", "qty" : 25, "size" : { "h" : 14, "w" : 21, "uom" : "cm" }, "status" : "A" }
 
      - id: nodejs
        content: |
          .. class:: copyable-code
          .. code-block:: sh
             
-            cursor.each(function(err, doc) {
-                console.log(doc);
-            });
+            { _id: 5ade424c84c9ca2d56d31697,
+              item: 'journal',
+              qty: 25,
+              size: { h: 14, w: 21, uom: 'cm' },
+              status: 'A' }
 
             
      - id: php
@@ -88,26 +79,12 @@
 
      - id: perl
        content: |
+
+         .. note:: The MongoDB perl driver does not support insertion order. As a result your query results may not match what is expected.
          
-         perl doesn't have native support for JSON, for this example,
-         you can download the ``JSON`` module from cpan by running
-
-         .. code-block:: sh
-
-            cpan install JSON
-
-
          .. code-block:: sh
          
-            use JSON;
-
-            my $JSON = JSON->new->utf8;
-            $JSON->convert_blessed(1);
             
-            while (my $doc = $cursor->next) {
-               my $object = $JSON->encode($doc);
-               print "$object\n";
-            }
 
      - id: ruby
        content: |
@@ -128,6 +105,4 @@
        content: |
          .. code-block:: sh
            
-            foreach (var doc in result) {
-               Console.WriteLine(doc.ToJson());
-            }
+            { "_id" : ObjectId("5ade248f6847901ef531c3ff"), "item" : "journal", "qty" : 25, "size" : { "h" : 14, "w" : 21, "uom" : "cm" }, "status" : "A" }

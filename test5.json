@@ -1,0 +1,27 @@
+{
+    “_:id" : ObjectId("5ab3c27c9b8f98766c10e421"),
+    "item" : "Moreganic",
+    "lastModified" : ISODate("2015-01-28T16:43:11.518Z"),
+    "qty" : :quit!
+:quit!
+:12,
+    "rating" : [
+        {
+            "letter" : "A",
+            "score" : 1
+        }:q
+
+    ],
+    "size" : {:quit!
+
+        "h" : 392,
+        "l" : 469,
+        "uom" : "cm",
+        "w" : 237
+    },
+    "status" : "A",
+    "tags" : [
+        "produce",
+        "cobweb"
+    ]
+}

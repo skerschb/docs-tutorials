@@ -30,11 +30,16 @@
        content: |
          
          .. code-block:: sh
-          
-            from pprint import pprint
-                
-            for inventory in cursor:
-                 pprint(inventory)   
+            {u'_id': ObjectId('5ada625baea65088bf0aa131'),
+             u'item': u'journal',
+             u'qty': 25,
+             u'size': {u'h': 14, u'uom': u'cm', u'w': 21},
+             u'status': u'A'}
+            {u'_id': ObjectId('5ada625baea65088bf0aa135'),
+             u'item': u'postcard',
+             u'qty': 45,
+             u'size': {u'h': 10, u'uom': u'cm', u'w': 15.25},
+             u'status': u'A'}
 
      - id: motor
        content: |
@@ -42,7 +47,7 @@
          .. code-block:: sh
 
             async for doc in cursor:
-                print(doc)
+                print doc
 
      - id: java-sync
        content: |
@@ -88,26 +93,11 @@
 
      - id: perl
        content: |
-         
-         perl doesn't have native support for JSON, for this example,
-         you can download the ``JSON`` module from cpan by running
-
-         .. code-block:: sh
-
-            cpan install JSON
-
-
          .. code-block:: sh
          
-            use JSON;
-
-            my $JSON = JSON->new->utf8;
-            $JSON->convert_blessed(1);
-            
             while (my $doc = $cursor->next) {
-               my $object = $JSON->encode($doc);
-               print "$object\n";
-            }
+                print $doc ."\n";
+            } 
 
      - id: ruby
        content: |
@@ -129,5 +119,5 @@
          .. code-block:: sh
            
             foreach (var doc in result) {
-               Console.WriteLine(doc.ToJson());
+                Console.WriteLine(doc.toJson());
             }

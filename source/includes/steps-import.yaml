@@ -47,26 +47,37 @@ content: |
        - id: windows
          name: windows
          content: |
-           .. class:: copyable-code
+           
            .. code-block:: javascript
- 
          
-              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~\downloads\inventory.out
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~\downloads\inventory.json
   
        - id: unix
          name: unix (standalone)
          content: |
-           .. class:: copyable-code
            .. code-block:: javascript
   
-              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~/Downloads/inventory.out
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~/Downloads/inventory.json
           
        - id: atlas
          name: atlas (cloud)
          content: |
-           .. class:: copyable-code
            .. code-block:: javascript
   
-              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~/downloads/inventory.out
+              mongoimport --host <host> --port <port> --db test --collection inventory --authenticationDatabase admin --username <user> --password <password> --drop --file ~/downloads/inventory.json
           
-          
+---      
+title: Check Your Results
+ref: check_import
+level: 4
+stepnum: 3
+content: |
+
+  If you've successfully run mongoimport you should see
+  the following in your shell or command prompt:
+       
+  .. code-block:: javascript
+    
+     2018-04-20T16:23:19.594-0400	connected to: localhost:27017
+     2018-04-20T16:23:19.595-0400	dropping: test.inventory 
+     2018-04-20T16:23:19.724-0400	imported 3244 documents 

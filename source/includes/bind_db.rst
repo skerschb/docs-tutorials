@@ -2,14 +2,10 @@
 
    tabs:
      - id: shell
-       content: |
-         .. note:: By binding to the database, if it does not already
-            exist, you will be creating it.
+       content: |       
          
+         To switch to the ``test`` database in the shell, type          
          
-         To bind to the ``test`` database in the shell, type          
-         
-         .. cssclass:: copyable-code
          .. code-block:: sh
               
             use test
@@ -17,7 +13,8 @@
      - id: compass
        content: |
          
-         Click the :guilabel:`Create Database` button.
+         If the database has not been created already, click the
+         :guilabel:`Create Database` button.
          
          .. figure:: /images/compass-create-database.png
             :alt: Screeenshot after connecting with the "Create Database" button.
@@ -26,31 +23,39 @@
      - id: python
        content: |
            
-         .. cssclass:: copyable-code
          .. code-block:: sh
 
-	        db = client.test
+	          db = client.test
          
      - id: motor
        content: |
-       
-         Motor doesn't connect to MongoDB until it runs an operation against the database.
-         So "creating" a connection merely creates a handle to the connection object.
+         
+         .. code-block:: sh
+            
+            import motor.motor_asyncio
+            import asyncio
+            import pprint
+
+            client = motor.motor_asyncio.AsyncIOMotorClient('<URISTRING>')
+            db = client.test
+
+            collection = db.inventory
          
 
      - id: java-sync
        content: |
-         .. code-block:: java
          
-		    MongoDatabase mongoDB = mongoClient.getDatabase("test");
+         .. code-block:: sh
+         
+		        MongoDatabase mongoDB = mongoClient.getDatabase("test");
 		    
 	
    
      - id: nodejs
        content: |
-         Within the connect block, bind to the database
          
-         .. cssclass:: copyable-code
+         Within the connect block, switch to the database
+
          .. code-block:: javascript
             
             const dbName = "test";
@@ -58,10 +63,7 @@
          
      - id: php
        content: |
-         
-         Now we are ready to bind to the database.        
-        
-         .. cssclass:: copyable-code
+
          .. code-block:: php
          
             $db = $manager->test;
@@ -69,21 +71,48 @@
 
      - id: perl
        content: |
-         Make sure you have `installed the perl driver
-         <https://github.com/mongodb/mongo-perl-driver/blob/master/INSTALL.md>`__
+         
+         .. code-block:: sh
+            
+            use MongoDB;
+
+            my $client = MongoDB->connect('<URISTRING>');
+
+            my $db = $client->get_database('test');
+            
 
      - id: ruby
        content: |
-         Make sure you have `installed the Ruby driver
-         <https://docs.mongodb.com/ruby-driver/master/installation/>`__
+         
+         If you specified `test` as your database in your URI string, you should already be connected to the `test` database.
   
      - id: scala
        content: |
-         Make sure you have `installed the Scala driver
-         <http://mongodb.github.io/mongo-scala-driver/2.1/getting-started/installation-guide/>`__
-  
+         
+         .. code-block:: sh
+         
+            val database: MongoDatabase = mongoClient.getDatabase("test")
+
+
      - id: csharp
        content: |
-         Make sure you have `installed the csharp driver
-         <http://mongodb.github.io/mongo-csharp-driver/2.2/getting_started/installation/>`__
+         
+         .. code-block:: sh
+            
+            using System;
+            using MongoDB.Bson;
+            using MongoDB.Driver;
+
+            namespace csharptest
+            {
+               class Program
+               {
+                   static void Main(string[] args)
+                   {
+                      var client = new MongoClient("mongodb://testuser:password@localhost:27017/test?authSource=admin");
+                      var database = client.GetDatabase("test");
+                      var collection = database.GetCollection<BsonDocument>("inventory");
+                 }
+               }
+            }
   

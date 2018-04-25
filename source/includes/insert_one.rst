@@ -66,27 +66,8 @@
          ObjectId value to the new document. See
          :ref:`write-op-insert-behavior`.
          
-         First, bind to the ``inventory`` collection.
+         First, switch to the ``inventory`` collection.
          
-         .. class:: copyable-code
-         .. literalinclude:: /driver-examples/JavaConnectTest.java
-            :language: java
-            :dedent: 4
-            :start-after: Start Collection Bind
-            :end-before: End Collection Bind
-            
-     - id: java-async
-       content: |
-         
-         The following example inserts a new document into the
-         ``inventory`` collection. If the document does not specify
-         an ``_id`` field, the driver adds the ``_id`` field with an
-         ObjectId value to the new document. See
-         :ref:`write-op-insert-behavior`.
-         
-         First, bind to the ``inventory`` collection.
-         
-         .. class:: copyable-code
          .. literalinclude:: /driver-examples/JavaConnectTest.java
             :language: java
             :dedent: 4

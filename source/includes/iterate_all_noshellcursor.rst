@@ -4,21 +4,7 @@
      - id: shell
        content: |
 
-         By default, the shell will only show the first set of documents
-         and return a cursor. This is adequate when the result set only
-         contains a few documents.
-
-         If your result set is larger, to see *all* of the results of
-         your query, iterate the cursor.
-         
-         .. code-block:: sh
-
-            while (myCursor.hasNext()) {
-                print(tojson(myCursor.next()));
-            }
-
-         .. note:: You can also manually iterate through the results by
-            typing ``it`` when prompted by the shell.
+         This query does not require cursor iteration in ``mongo`` shell.
 
      - id: compass
        content: |
@@ -46,7 +32,9 @@
 
      - id: java-sync
        content: |
-         Create a method to print the results of the iteration 
+         
+         You can implement a ``com.mongodb.Block`` to print the results
+         of the iteration
          
          .. class: copyable-code
          .. code-block:: sh
@@ -60,7 +48,8 @@
          
          
             
-         Then query the collection for documents.
+         Then query the collection for documents, passing the
+         ``printBlock`` as a parameter.
          
          .. class: copyable-code
          .. code-block:: sh
@@ -88,7 +77,7 @@
 
      - id: perl
        content: |
-         
+
          perl doesn't have native support for JSON, for this example,
          you can download the ``JSON`` module from cpan by running
 
