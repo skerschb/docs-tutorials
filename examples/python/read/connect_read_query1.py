@@ -11,15 +11,7 @@ client = MongoClient(connection_string)
 db = client.test
 # End DatabaseBind
 
-# Start InsertOne
-db.inventory.insert_one(
-    {"item": "canvas",
-     "qty": 101,
-     "tags": ["cotton"],
-     "size": {"h": 28, "w": 35.5, "uom": "cm"}})
-# End InsertOne
-
-cursor = db.inventory.find({})
+cursor = db.inventory.find({"status": "D"})
 
 for inventory in cursor:
   pprint(inventory)
