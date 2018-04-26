@@ -24,4 +24,4 @@ cursor = db.inventory.find({})
 for inventory in cursor:
   pprint(inventory)
 
-client.close();
+client.close()
