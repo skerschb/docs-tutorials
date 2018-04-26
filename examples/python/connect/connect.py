@@ -11,4 +11,4 @@ client = MongoClient(connection_string)
 db = client.test
 # End DatabaseBind
 
-client.close();
+client.close()
