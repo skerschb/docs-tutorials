@@ -56,5 +56,6 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete(do_retrieve_status())
 loop.run_until_complete(do_retrieve_embedded())
 loop.run_until_complete(do_retrieve_embedded_dot())
+client.close()
 loop.close()
 
