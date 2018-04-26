@@ -9,7 +9,7 @@ content: |
 
   .. include:: /includes/drivers_connect.rst
 ---
-title: Switch to the ``Test`` Database
+title: Switch to the ``test`` Database
 ref: bind_db
 level: 4
 stepnum: 2
@@ -45,17 +45,6 @@ stepnum: 5
 content: |
   
   If you loaded the data from :doc:`/guides/server/insert`, you should
-  see output that resembles the following: (results_read1.rst)
-  
-  .. code-block:: javascript
-  
-       { "_id" : ObjectId("5a9854915c8eb0d368732649"), 
-         "item" : "canvas", 
-         "qty" : 100, 
-         "tags" : [ "cotton" ], 
-         "size" : { 
-                     "h" : 28, 
-                     "w" : 35.5, 
-                     "uom" : "cm" 
-                  } 
-       }
+  see output that resembles the following:
+
+  .. include:: /includes/results_read1.rst

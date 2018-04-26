@@ -9,7 +9,7 @@ content: |
 
   .. include:: /includes/drivers_connect.rst
 ---
-title: Switch to the ``Test`` Database
+title: Switch to the ``test`` Database
 ref: bind_db
 level: 4
 stepnum: 2

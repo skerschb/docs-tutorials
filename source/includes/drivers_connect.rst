@@ -98,7 +98,7 @@
 
          .. code-block:: sh
 
-            client.close();
+            client.close()
          
      - id: motor
        content: |
@@ -160,6 +160,30 @@
             :dedent: 0
             :start-after: Start Connect
             :end-before: End Connect  
+
+     - id: csharp
+       content: |
+
+         The ``MongoDB.Bson`` package is used in the CRUD operation.
+         
+         .. code-block:: sh
+        
+         
+            using System;
+            using MongoDB.Bson;
+            using MongoDB.Driver;
+           
+            namespace csharptest
+            {
+                class Program
+                {
+                    static void Main(string[] args)
+                    {
+                       var client = new MongoClient("<URISTRING>");
+                       
+                    }
+                }
+            }
          
 ..    - id: php
 ..      content: |
@@ -254,25 +278,5 @@
 
 ..             }
   
-     - id: csharp
-       content: |
-         
-         .. code-block:: sh
-        
-         
-            using System;
-            using MongoDB.Bson;
-            using MongoDB.Driver;
-           
-            namespace csharptest
-            {
-                class Program
-                {
-                    static void Main(string[] args)
-                    {
-                       var client = new MongoClient("<URISTRING>");
-                       
-                    }
-                }
-            }
+
   

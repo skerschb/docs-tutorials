@@ -1,30 +1,29 @@
 .. tabs-drivers::
 
    tabs:
+     
      - id: shell
        content: |
 
-         By default, the shell will only show the first set of documents
-         and return a cursor. This is adequate when the result set only
-         contains a few documents.
-
-         If your result set is larger, to see *all* of the results of
-         your query, iterate the cursor.
-         
-         .. code-block:: sh
-
-            while (myCursor.hasNext()) {
-                print(tojson(myCursor.next()));
+         .. code-block:: javascript
+  
+            { "_id" : ObjectId("5a9854915c8eb0d368732649"), 
+              "item" : "canvas", 
+              "qty" : 100, 
+              "tags" : [ "cotton" ], 
+              "size" : { 
+                          "h" : 28, 
+                          "w" : 35.5, 
+                          "uom" : "cm" 
+                       } 
             }
-
-         .. note:: You can also manually iterate through the results by
-            typing ``it`` when prompted by the shell.
 
      - id: compass
        content: |
-
-         You will see a list of all of the documents that match your
-         criteria in the query window.
+       
+         .. figure:: /images/compass-find-all.png
+            :alt: Screenshot of Compass result grid
+            :figwidth: 500px
 
      - id: python
        content: |
@@ -63,42 +62,8 @@
               size: { h: 14, w: 21, uom: 'cm' },
               status: 'A' }
 
-
-            
-     - id: php
-       content: |
-         .. code-block:: sh
-            
-            foreach ( $cursor as $id => $value )
-            {
-                var_dump( $value );
-            }
-
-     - id: perl
-       content: |
-         .. code-block:: sh
-         
-            while (my $doc = $cursor->next) {
-                print $doc ."\n";
-            } 
-
-     - id: ruby
-       content: |
-         .. code-block:: sh
-            
-            cursor.each do |doc|
-               puts doc
-            end
-
-     - id: scala
-       content: |
-         .. code-block:: sh
-            
-            collection.find().subscribe((doc: Document) => println(doc.toJson()))
-           
-
      - id: csharp
        content: |
          .. code-block:: sh
            
-            { "_id" : ObjectId("5ade1ebd9299811bc223e797"), "item" : "canvas", "qty" : 100, "tags" : ["cotton"], "size" : { "h" : 28, "w" : 35.5, "uom" : "cm" } }
+            { "_id" : ObjectId("5ade1ebd9299811bc223e797"), "item" : "canvas", "qty" : 100, "tags" : ["cotton"], "size" : { "h" : 28, "w" : 35.5, "uom" : "cm" } #}
