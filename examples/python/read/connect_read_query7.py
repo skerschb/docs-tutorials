@@ -1,6 +1,7 @@
 # Start Connection
 from pymongo import MongoClient
 from pprint import pprint
+from bson import SON
 import json
 
 connection_string = "mongodb://testuser:<PASSWORD>@localhost:27017/test?authSource=admin"
@@ -11,17 +12,13 @@ client = MongoClient(connection_string)
 db = client.test
 # End DatabaseBind
 
-# Start InsertOne
-db.inventory.insert_one(
-    {"item": "canvas",
-     "qty": 101,
-     "tags": ["cotton"],
-     "size": {"h": 28, "w": 35.5, "uom": "cm"}})
-# End InsertOne
+# End InsertMany
 
-cursor = db.inventory.find({})
+cursor = db.inventory.find({
+    "status": "A",
+    "$or": [{"qty": {"$lt": 30}}, {"item": {"$regex": "^p"}}]})
 
 for inventory in cursor:
   pprint(inventory)
 
-client.close();
+client.close()
