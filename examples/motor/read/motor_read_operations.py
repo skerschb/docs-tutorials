@@ -21,5 +21,6 @@ async def do_retrieve_implied_and():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(do_retrieve_operator())
 loop.run_until_complete(do_retrieve_implied_and())
+client.close()
 loop.close()
 
