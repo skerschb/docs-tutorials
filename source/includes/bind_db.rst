@@ -35,7 +35,7 @@
            
          .. code-block:: sh
 
-	    db = client.test
+	          db = client.test
          
      - id: motor
        content: |
@@ -52,7 +52,7 @@
          
          .. code-block:: sh
          
-	    MongoDatabase mongoDB = mongoClient.getDatabase("test");
+	          MongoDatabase mongoDB = mongoClient.getDatabase("test");
 		    
 	
    
@@ -68,8 +68,6 @@
      - id: php
        content: |
 
-         Switch to the ``test`` database.
-
          .. code-block:: php
          
             $db = $manager->test;
@@ -77,8 +75,6 @@
 
      - id: perl
        content: |
-
-         Switch to the ``test`` database.
          
          .. code-block:: sh
             
@@ -111,8 +107,6 @@
   
      - id: scala
        content: |
-
-         Switch to the ``test`` database:
          
          .. code-block:: sh
          
@@ -127,20 +121,6 @@
          
          .. code-block:: sh
             
-            using System;
-            using MongoDB.Bson;
-            using MongoDB.Driver;
+            var database = client.GetDatabase("test");
 
-            namespace csharptest
-            {
-               class Program
-               {
-                   static void Main(string[] args)
-                   {
-                      var client = new MongoClient("mongodb://testuser:password@localhost:27017/test?authSource=admin");
-                      var database = client.GetDatabase("test");
-                      var collection = database.GetCollection<BsonDocument>("inventory");
-                 }
-               }
-            }
   

@@ -10,12 +10,8 @@
      python
      java-sync
      nodejs
-     php
      motor
      csharp
-     perl
-     ruby
-     scala
    result_description:
       You will retrieve data from MongoDB.
    time: 15

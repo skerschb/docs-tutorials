@@ -152,108 +152,107 @@
    
      - id: nodejs
        content: |
-         
+        
          Note that you will need to modify the URI string
          manually below, as node requires URI encoding.
          
-         .. literalinclude:: /driver-examples/connect.js
-            :language: javascript
+         .. :language: javascript
             :dedent: 0
             :start-after: Start Connect
             :end-before: End Connect  
          
-     - id: php
-       content: |
-         
-         The connection code has been separated into a class.
-         
-         .. literalinclude:: /driver-examples/connect.php
-            :language: php
-            :dedent: 0
-            :start-after: Start Connect
-            :end-before: End Connect
-            
-         And the caller script:
-         
-         .. literalinclude:: /driver-examples/phpconnecttest.phpt
-            :language: php
-            :dedent: 0
-            :start-after: Start Connect Call
-            :end-before: End Connect Call
+..    - id: php
+..      content: |
+..        
+..        The connection code has been separated into a class.
+..        
+..        .. literalinclude:: /driver-examples/connect.php
+..           :language: php
+..           :dedent: 0
+..           :start-after: Start Connect
+..           :end-before: End Connect
+..           
+..        And the caller script:
+..        
+..        .. literalinclude:: /driver-examples/phpconnecttest.phpt
+..           :language: php
+..           :dedent: 0
+..           :start-after: Start Connect Call
+..           :end-before: End Connect Call
 
-         While you wouldn't typically close a connection before you use
-         it to do anything, it is good form to include a close statement
-         in any code you are writing as you learn MongoDB.
+..        While you wouldn't typically close a connection before you use
+..        it to do anything, it is good form to include a close statement
+..        in any code you are writing as you learn MongoDB.
 
-         .. code-block:: sh
+..        .. code-block:: sh
 
-            $test->close();
-            
-             
-  
-     - id: perl
-       content: |
-         
-         .. code-block:: sh
-            
-            use MongoDB;
+..           $test->close();
+..           
+..            
+.. 
+..    - id: perl
+..      content: |
+..        
+..        .. code-block:: sh
+..           
+..           use MongoDB;
 
-            my $client = MongoDB->connect('<URISTRING>');
+..           my $client = MongoDB->connect('<URISTRING>');
 
-         While you wouldn't typically close a connection before you use
-         it to do anything, it is good form to include a close statement
-         in any code you are writing as you learn MongoDB.
+..        While you wouldn't typically close a connection before you use
+..        it to do anything, it is good form to include a close statement
+..        in any code you are writing as you learn MongoDB.
 
-         .. code-block:: sh
+..        .. code-block:: sh
 
-            $client->disconnect;
+..           $client->disconnect;
 
-     - id: ruby
-       content: |
-       
-         The MongoDB ruby driver will initiate a connection with the server when you run this command:
-       
-         .. code-block:: sh
-            
-            require 'mongo'
+..    - id: ruby
+..      content: |
+..      
+..        The MongoDB ruby driver will initiate a connection with the server when you run this command:
+..      
+..        .. code-block:: sh
+..           
+..           require 'mongo'
 
-            client = Mongo::Client.new('<URISTRING>')
+..           client = Mongo::Client.new('<URISTRING>')
 
-         While you wouldn't typically close a connection before you use
-         it to do anything, it is good form to include a close statement
-         in any code you are writing as you learn MongoDB.
+..        While you wouldn't typically close a connection before you use
+..        it to do anything, it is good form to include a close statement
+..        in any code you are writing as you learn MongoDB.
 
-         .. code-block:: sh
+..        .. code-block:: sh
 
-            client.close
+..           client.close
 
-  
-     - id: scala
-       content: |
-       
-         The MongoClient instance below is a connection *pool* -- which
-         means per application you typically only need one instance. The
-         instance is then shared across operations whenever possible.
+.. 
+..    - id: scala
+..      content: |
+..      
+..        The MongoClient instance below is a connection *pool* -- which
+..        means per application you typically only need one instance. The
+..        instance is then shared across operations whenever possible.
 
-         The close statement used below is to ensure that your script
-         does not leave connections open while you get acquainted with
-         coding to MongoDB.
-       
-         .. code-block:: sh
-            
-            import org.mongodb.scala._
+..        The close statement used below is to ensure that your script
+..        does not leave connections open while you get acquainted with
+..        coding to MongoDB.
+..      
+..        .. code-block:: sh
+..           
+..           import org.mongodb.scala._
 
-              object Main extends App {
-            
-                val ages = Seq(42, 75, 29, 64)
-                println(s"The oldest person is ${ages.max}")
-            
-                // Use a Connection String
-                val mongoClient: MongoClient = MongoClient("<URISTRING>")
-            
-                mongoClient.close();
+..             object Main extends App {
+..           
+..               val ages = Seq(42, 75, 29, 64)
+..               println(s"The oldest person is ${ages.max}")
+..           
+..               // Use a Connection String
+..               val mongoClient: MongoClient = MongoClient("<URISTRING>")
+..           
+..               mongoClient.close();
 
-              }
+..             }
   
      - id: csharp
        content: |
