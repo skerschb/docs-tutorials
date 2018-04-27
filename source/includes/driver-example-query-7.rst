@@ -38,6 +38,7 @@
          .. code-block:: sh
 
             MongoCollection<Document> collection = db.getCollection("inventory");
+
           
          Then query the collection for all documents by passing an empty document
          to the find() method.
