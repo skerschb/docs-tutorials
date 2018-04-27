@@ -102,12 +102,21 @@ namespace csharptest
             }
 
             var builder = Builders<BsonDocument>.Filter;
+            filter = builder.Or(builder.Eq("status", "A"), builder.Lt("qty", 30));
+            result = collection.Find(filter).ToList();
+
+            foreach (var doc in result) {
+                Console.WriteLine(doc.ToJson());
+            }
+
+            builder = Builders<BsonDocument>.Filter;
             filter = builder.And(builder.Eq("status", "A"), builder.Lt("qty", 30));
             result = collection.Find(filter).ToList();
             foreach (var doc in result)
             {
                 Console.WriteLine(doc.ToJson());
             }
+            
             builder = Builders<BsonDocument>.Filter;
             filter = builder.And(
                  builder.Eq("status", "A"),

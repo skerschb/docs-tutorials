@@ -2,6 +2,7 @@ import motor.motor_asyncio
 import asyncio
 import pprint
 
+#client = motor.motor_asyncio.AsyncIOMotorClient('<URISTRING>')
 client = motor.motor_asyncio.AsyncIOMotorClient('mongodb://testuser:<PASSWORD>@localhost:27017/test?authSource=admin');
 db = client.test
 
@@ -18,8 +19,14 @@ async def do_retrieve_implied_and():
     async for doc in cursor:
         pprint.pprint(doc)
 
+async def do_retrieve_or():
+    cursor = db.inventory.find({"$or": [{"status": "A"}, {"qty": {"$lt": 30}}]})
+    async for doc in cursor:
+        pprint.pprint(doc)
+
 loop = asyncio.get_event_loop()
 loop.run_until_complete(do_retrieve_operator())
 loop.run_until_complete(do_retrieve_implied_and())
+loop.run_until_complete(do_retrieve_or())
 loop.close()
 
