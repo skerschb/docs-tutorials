@@ -17,5 +17,6 @@ async def do_insert_one():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(do_insert_one())
+client.close()
 loop.close()
 

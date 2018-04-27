@@ -14,5 +14,6 @@ async def do_find():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(do_find())
+client.close()
 loop.close()
 

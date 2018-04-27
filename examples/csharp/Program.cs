@@ -116,7 +116,6 @@ namespace csharptest
             {
                 Console.WriteLine(doc.ToJson());
             }
-            
             builder = Builders<BsonDocument>.Filter;
             filter = builder.And(
                  builder.Eq("status", "A"),

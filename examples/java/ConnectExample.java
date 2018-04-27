@@ -109,7 +109,6 @@ public class ConnectExample {
 
         findIterable.forEach(printBlock);
 
-
         findIterable = collection.find(or(eq("status", "A"), lt("qty", 30)));
 
         System.out.println("READ GUIDE 3: example 3 results");
@@ -126,7 +125,8 @@ public class ConnectExample {
 
         mongoClient.close();
 
-        // End Collection Bind
     }
 }
+
+
 

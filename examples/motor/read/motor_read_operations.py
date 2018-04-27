@@ -2,7 +2,6 @@ import motor.motor_asyncio
 import asyncio
 import pprint
 
-#client = motor.motor_asyncio.AsyncIOMotorClient('<URISTRING>')
 client = motor.motor_asyncio.AsyncIOMotorClient('mongodb://testuser:<PASSWORD>@localhost:27017/test?authSource=admin');
 db = client.test
 
@@ -28,5 +27,6 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete(do_retrieve_operator())
 loop.run_until_complete(do_retrieve_implied_and())
 loop.run_until_complete(do_retrieve_or())
+client.close()
 loop.close()
 
